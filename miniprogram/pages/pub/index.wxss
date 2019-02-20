@@ -1,0 +1,14 @@
+
+
+.search-area {
+  height: 35px;
+  background-color: #000;
+}
+
+.title-1 {
+  text-align: center;
+  font-size: 15px;
+  color: #666666;
+  font-weight: 600;
+  padding: 5px 0;
+}

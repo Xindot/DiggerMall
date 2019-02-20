@@ -1,0 +1,25 @@
+
+
+
+
+.user-info,
+.shop-info,
+.feedback-area {
+  padding: 10px;
+  text-align: center;
+  background-color: #fff;
+}
+
+
+.user-info .login-btn {
+  padding: 0 30%;
+}
+
+
+
+.version-show {
+  font-size: 14px;
+  text-align: center;
+  opacity: .5;
+  padding: 10px 0;
+}

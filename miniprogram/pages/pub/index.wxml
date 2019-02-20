@@ -1,0 +1,15 @@
+<view>
+  <view class="search-area">
+
+  </view>
+  <view>
+    <view class="title-1">
+      <text>最新好机</text>  
+    </view>
+    <view class="list">
+      <view class="list-one">
+
+      </view>
+    </view>
+  </view>
+</view>

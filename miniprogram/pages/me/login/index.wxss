@@ -1,0 +1,19 @@
+
+
+.login {
+  padding: 15px;
+}
+
+.slogan {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.tips {
+  text-align: center;
+  font-size: 14px;
+}
+.tips .text {
+  margin: 10px 0;
+  color: #666;
+}

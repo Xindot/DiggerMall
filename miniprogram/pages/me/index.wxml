@@ -1,0 +1,32 @@
+<view>
+
+  <view class="user-info">
+    <view wx:if="{{userInfo.basic}}">
+      <view>
+        <image wx:if="{{userInfo.basic.avatarUrl}}" style="width: 50px; height: 50px;font-size: 0;border-radius: 50px;vertical-align:middle;" src="{{dbUserInfo.basic.avatarUrl}}"></image>
+      </view>
+    </view>
+    <view wx:else class="login-btn" data-text="微信登录" bindtap="goLoginPage">
+      <button type="primary">微信登录</button>
+    </view>
+  </view>
+
+  <view class="gap-1"></view>
+
+  <view class="shop-info">
+    <view>
+      店铺信息
+    </view>
+  </view>
+
+  <view class="gap-1"></view>
+
+  <view class="feedback-area">
+    意见反馈
+  </view>
+
+
+  <view class="version-show">
+    <text>v1.0.0</text>
+  </view>
+</view>

@@ -1,6 +1,9 @@
 {
   "pages": [
-    "pages/index/index",
+    "pages/pub/index",
+    "pages/me/index",
+    "pages/me/login/index",
+    "pages/test/index",
     "pages/userConsole/userConsole",
     "pages/storageConsole/storageConsole",
     "pages/databaseGuide/databaseGuide",
@@ -14,5 +17,27 @@
     "navigationBarBackgroundColor": "#F6F6F6",
     "navigationBarTitleText": "寻机挖宝",
     "navigationBarTextStyle": "black"
-  }
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#666666",
+    "borderStyle": "#ffffff",
+    "backgroundColor": "#ffffff",
+    "box-shadow": "0 0 5px 0",
+    "list": [
+      {
+        "pagePath": "pages/pub/index",
+        "iconPath": "images/tabBar/pub-off.png",
+        "selectedIconPath": "images/tabBar/pub-on.png",
+        "text": "发现"
+      },
+      {
+        "pagePath": "pages/me/index",
+        "iconPath": "images/tabBar/me-off.png",
+        "selectedIconPath": "images/tabBar/me-on.png",
+        "text": "我"
+      }
+    ]
+  },
+  "cloud": true
 }
