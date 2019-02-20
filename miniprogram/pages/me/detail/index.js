@@ -1,5 +1,4 @@
-const app = getApp()
-const db = app.globalData.db
+
 
 Page({
 
@@ -7,10 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userInfo: {
-      basic: null,
-      shop: null
-    }
+    
   },
 
   /**
@@ -67,24 +63,5 @@ Page({
    */
   onShareAppMessage: function () {
     
-  },
-
-  /**
-   * 去登录页面
-   */
-  goLoginPage() {
-    wx.navigateTo({
-      url: './login/index',
-    })
-  },
-
-  /**
-   * 去意见反馈页面
-   */
-  goFeedbackPage() {
-    wx.navigateTo({
-      url: './feedback/index',
-    })
-  },
-
+  }
 })

@@ -1,8 +1,14 @@
 {
   "pages": [
     "pages/pub/index",
+    "pages/pub/detail/index",
+    "pages/pub/edit/index",
     "pages/me/index",
     "pages/me/login/index",
+    "pages/me/detail/index",
+    "pages/me/shop/detail/index",
+    "pages/me/shop/edit/index",
+    "pages/me/feedback/index",
     "pages/test/index",
     "pages/userConsole/userConsole",
     "pages/storageConsole/storageConsole",

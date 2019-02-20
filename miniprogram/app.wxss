@@ -7,7 +7,7 @@
 } 
 
 page {
-  font-size: 14px;
+  font-size: 16px;
   background-color: #F6F6F6;
 }
 

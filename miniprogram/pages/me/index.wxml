@@ -6,7 +6,7 @@
         <image wx:if="{{userInfo.basic.avatarUrl}}" style="width: 50px; height: 50px;font-size: 0;border-radius: 50px;vertical-align:middle;" src="{{dbUserInfo.basic.avatarUrl}}"></image>
       </view>
     </view>
-    <view wx:else class="login-btn" data-text="微信登录" bindtap="goLoginPage">
+    <view wx:else class="login-btn" bindtap="goLoginPage">
       <button type="primary">微信登录</button>
     </view>
   </view>
@@ -21,8 +21,8 @@
 
   <view class="gap-1"></view>
 
-  <view class="feedback-area">
-    意见反馈
+  <view class="feedback-area" bindtap="goFeedbackPage">
+    <text>意见反馈</text>
   </view>
 
 

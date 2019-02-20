@@ -1,0 +1,26 @@
+<view>
+	<view class="fb-header">
+		<view wx:for="{{header.tabs}}" wx:key="{{index}}" class="fb-tab-one {{header.selectIndex==index?'active':''}}" data-idx="{{index}}" bindtap="tabSwitch">{{item}}</view>
+	</view>
+  <view class="fb-main">
+
+    <view wx:if="{{header.selectIndex==0}}" bindsubmit="bindFormSubmit" class="fb-submit">
+      <textarea placeholder="有啥好的意见或建议不~(*^__^*)~您的反馈是我们前进的动力" value="{{fbSubmit.content}}" bindinput="contentChange"/>
+      <view class="fb-btn" bindtap="bindFormSubmit">
+        <text style="{{fbSubmit.content==''?'opacity:.5':''}}">提交</text>
+      </view>
+    </view>
+
+    <view wx:if="{{header.selectIndex==1}}" class="fb-list">
+      <view wx:if="{{fbList && fbList.length>0}}" wx:for="{{fbList}}" wx:key="{{index}}" class="fb-list-one" id="{{item._id}}" bindtap="delOne">
+        <view style="font-size:14px;color:#666;">{{item.created_at}}</view>
+        <view style="font-size:18px;">{{item.content}}</view>
+        <view wx:if="{{item.reply}}" style="font-size:14px;color:green;">回复：{{item.reply}}</view>
+      </view>
+      <view wx:if="{{fbListTips}}" class="fb-list-tips">
+        <text>{{fbListTips}}</text>
+      </view>
+    </view>
+
+  </view>
+</view>
