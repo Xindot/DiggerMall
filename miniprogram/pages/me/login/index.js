@@ -94,8 +94,10 @@ Page({
             const user = res.data[0]
             db.collection('wa_user').doc(user._id).update({
               data: {
-                updated_at: util.formatTime(new Date(), '-:'),
-                ...wxUserInfo
+                wx: {
+                  updated_at: util.formatTime(new Date(), '-:'),
+                  ...wxUserInfo
+                }
               }
             }).then(res => {
               console.log(res)
@@ -105,9 +107,11 @@ Page({
           } else {
             console.log('新增用户提示：用户不存在')
             const newUser = {
-              created_at: util.formatTime(new Date(), '-:'),
-              updated_at: util.formatTime(new Date(), '-:'),
-              ...wxUserInfo
+              wx: {
+                created_at: util.formatTime(new Date(), '-:'),
+                updated_at: util.formatTime(new Date(), '-:'),
+                ...wxUserInfo
+              }
             }
             db.collection('wa_user').add({
               data: newUser

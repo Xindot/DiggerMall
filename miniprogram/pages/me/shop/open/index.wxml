@@ -1,0 +1,40 @@
+<view class="open-shop">
+
+  <view class="gap-1"></view>
+  <view class="shop-logo" bindtap="doUploadImage">
+    <image style="width: 100px; height: 100px;font-size: 0;vertical-align:middle;" src="{{shopInfo.logo || defaultInfo.logo}}"></image>
+    <view>
+      <text style="font-size:12px;">点击上传</text>  
+    </view>
+  </view>
+
+  <view class="gap-1"></view>
+  <view class="shop-name">
+    <text wx:if="{{shopInfo.name}}" style="font-size:12px;">
+      <text>店铺名称</text>
+      <text style="color:red;"> * </text>
+    </text>
+    <input placeholder="店铺名称" value="{{shopInfo.name}}" bindinput="shopNameChange" maxlength="50"/>
+  </view>
+
+  <view class="gap-1"></view>
+  <view class="shop-desc">
+    <text wx:if="{{shopInfo.desc}}" style="font-size:12px;">
+      <text>店铺描述</text>
+      <text style="color:red;"> * </text>
+    </text>
+    <textarea placeholder="店铺描述" value="{{shopInfo.desc}}" bindinput="shopDescChange" auto-height style="min-height:50px;" maxlength="200"/>
+  </view>
+
+  <view class="gap-1"></view>
+  <view class="shop-remark">
+    <text wx:if="{{shopInfo.remark}}" style="font-size:12px;">备注</text>
+    <textarea placeholder="备注" value="{{shopInfo.remark}}" bindinput="shopRemarkChange" auto-height style="min-height:50px;" maxlength="200"/>
+  </view>
+
+  <view class="gap-1"></view>
+  <view class="shop-btn" bindtap="shopInfoSave">
+    <button type="primary">提交基本信息</button>
+  </view>
+
+</view>

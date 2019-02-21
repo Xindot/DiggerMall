@@ -1,4 +1,4 @@
-/**app.wxss**/
+
 .container {
   display: flex;
   flex-direction: column;
@@ -9,10 +9,16 @@
 page {
   font-size: 16px;
   background-color: #F6F6F6;
+  color: #666666;
 }
 
 
 .gap-1 {
   height: 10px;
   background-color: #F6F6F6;
+}
+
+
+.color-1 {
+  color: #1f87dd;
 }

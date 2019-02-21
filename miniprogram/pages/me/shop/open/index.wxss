@@ -1,0 +1,24 @@
+
+
+
+.open-shop input,
+.open-shop textarea {
+  color: #000;
+  width: 100%;
+}
+
+.shop-name,
+.shop-desc,
+.shop-remark {
+  padding: 10px;
+  text-align: left;
+  background-color: #fff;
+}
+
+.shop-logo {
+  text-align: center;
+}
+
+.shop-btn {
+  padding: 5% 20%;
+}

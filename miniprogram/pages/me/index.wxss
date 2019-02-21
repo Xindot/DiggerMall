@@ -6,15 +6,55 @@
 .shop-info,
 .feedback-area {
   padding: 10px;
-  text-align: center;
   background-color: #fff;
 }
 
 
-.user-info .login-btn {
-  padding: 0 30%;
+.user-info {
+  text-align: left;
+}
+.user-info .left {
+  display: inline-block;
+  width: 20%;
+  text-align: center;
+}
+.user-info .center{
+  display: inline-block;
+  width: 60%;
+}
+.user-info .right {
+  display: inline-block;
+  width: 60%;
+  text-align: right;
 }
 
+.shop-info {
+  text-align: center;
+}
+.shop-info .middle .left {
+  display: inline-block;
+  width: 20%;
+}
+.shop-info .middle .center {
+  display: inline-block;
+  width: 60%;
+  text-align: left;
+}
+.shop-info .middle .right {
+  display: inline-block;
+  width: 20%;
+  text-align: right;
+}
+
+
+.feedback-area {
+  text-align: center;
+}
+
+
+.login-btn {
+  padding: 20%;
+}
 
 
 .version-show {

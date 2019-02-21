@@ -6,8 +6,8 @@
     "pages/me/index",
     "pages/me/login/index",
     "pages/me/detail/index",
+    "pages/me/shop/open/index",
     "pages/me/shop/detail/index",
-    "pages/me/shop/edit/index",
     "pages/me/feedback/index",
     "pages/test/index",
     "pages/userConsole/userConsole",
@@ -25,11 +25,11 @@
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
-    "color": "#999999",
-    "selectedColor": "#666666",
+    "color": "#1f87dd80",
+    "selectedColor": "#1f87dd",
     "borderStyle": "#ffffff",
     "backgroundColor": "#ffffff",
-    "box-shadow": "0 0 5px 0",
+    "box-shadow": "0 0 10px 0",
     "list": [
       {
         "pagePath": "pages/pub/index",

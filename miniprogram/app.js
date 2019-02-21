@@ -7,29 +7,22 @@ const Version = 'v1.0.1'
 console.log('Version=>', Version)
 
 // console.log('wx.cloud=>',wx.cloud)
-wx.cloud.init({
-  env,
-  traceUser: true,
-})
+if (!wx.cloud) {
+  console.error('请使用 2.2.3 或以上的基础库以使用云能力')
+} else {
+  wx.cloud.init({
+    env,
+    traceUser: true,
+  })
+}
+
 const db = wx.cloud.database()
 
 //app.js
 App({
   onLaunch: function () {
-    
-    if (!wx.cloud) {
-      console.error('请使用 2.2.3 或以上的基础库以使用云能力')
-    } else {
-      wx.cloud.init({
-        traceUser: true,
-      })
-    }
-
-    // this.globalData = {}
-
     // 获取用户OPENID
     this.getWXOPENID()
-
   },
   // 获取用户OPENID by缓存
   getWXOPENID() {
@@ -94,31 +87,71 @@ App({
   },
   // 设置用户信息
   setDBUserInfo(dbUserInfo) {
-    if (dbUserInfo && dbUserInfo._openid && dbUserInfo.nickName) {
-      const insertUserInfo = {
-        openId: dbUserInfo._openid,
-        nickName: dbUserInfo.nickName,
-        avatarUrl: dbUserInfo.avatarUrl,
-        gender: dbUserInfo.gender,
-      }
+    if (dbUserInfo && dbUserInfo._openid && dbUserInfo.wx && dbUserInfo.wx.nickName) {
       this.globalData.dbUserInfo = dbUserInfo
-      this.globalData.insertUserInfo = insertUserInfo
       try {
         wx.setStorageSync('dbUserInfo', dbUserInfo)
-        wx.setStorageSync('insertUserInfo', insertUserInfo)
       } catch (e) {
         console.error(e)
       }
     } else {
       this.globalData.dbUserInfo = null
-      this.globalData.insertUserInfo = null
       try {
         wx.removeStorageSync('dbUserInfo')
-        wx.removeStorageSync('insertUserInfo')
       } catch (e) {
         console.error(e)
       }
     }
+  },
+
+  // 上传图片
+  doUploadImage(count,callback) {
+
+    const WXContext = wx.getStorageSync('WXContext')
+    const OPENID = WXContext.OPENID;
+    if (!(Version && OPENID)) {
+      callback({ code: -1, msg: 'Version或OPENID错误' })
+      return
+    }
+
+    // 选择图片
+    wx.chooseImage({
+      count: count || 1,
+      sizeType: ['compressed'],
+      sourceType: ['album', 'camera'],
+      success: function (res) {
+        wx.showLoading({
+          title: '上传中',
+        })
+        const filePath = res.tempFilePaths[0]
+
+        // 唯一key
+        const time19 = util.formatTime(new Date(), '19')
+        const rStr4 = Math.random().toString(36).substr(2).substring(0, 4);
+        const uukey = `${Version}/${OPENID}/${time19}/${rStr4}`;
+
+        // 上传图片
+        const cloudPath = uukey + filePath.match(/\.[^.]+?$/)[0]
+        wx.cloud.uploadFile({
+          cloudPath,
+          filePath,
+          success: res => {
+            // console.log('[上传文件] 成功：', res)
+            callback(res)
+          },
+          fail: e => {
+            // console.error('[上传文件] 失败：', e)
+            callback(e)
+          },
+          complete: () => {
+            wx.hideLoading()
+          }
+        })
+      },
+      fail: e => {
+        console.error(e)
+      }
+    })
   },
 
   globalData: {
@@ -126,11 +159,8 @@ App({
     env,
     db,
     WXContext: null,
-    // dbUserInfo: null,
-    // insertUserInfo: null,
-    // myPubOneDetail: null,
-    // pubMatchTwo: null,
-    // showRefresh: false,
+    dbUserInfo: null,
+    showRefresh: false,
     // QNConfig: {
     //   upHost: 'https://up.qbox.me',
     // },
