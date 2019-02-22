@@ -1,65 +1,58 @@
+const util = require('../../../../utils/util')
+
+const app = getApp()
+const db = app.globalData.db
+const Timeout = app.globalData.Timeout
+const Tips = app.globalData.Tips
+const Version = app.globalData.Version
+
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
+    shopUserInfo: null,
+    shop: {
+      dbg: ['cloud://test-5ada43.7465-test-5ada43/static/shop/d-bg/0001.jpeg']
+    },
+    icon: {
+      right: '../../../../images/common/right.png',
+      phone: '../../../../images/common/phone.png',
+      wechat: '../../../../images/common/wechat.png',
+    }
+  },
+  onLoad(options) {
+    const uid = options.uid
+    if(uid){
+      this.getShopDetail(uid)
+    }
+  },
+  onReady() {
     
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
+  onShow() {
     
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
+  onHide() {
     
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
+  onUnload() {
     
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
+  onPullDownRefresh() {
     
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
+  onReachBottom() {
     
   },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
+  onShareAppMessage() {
     
   },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-    
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-    
+  getShopDetail(uid){
+    db.collection('wa_user').doc(uid).get().then(res => {
+      console.log(res)
+      if (res.errMsg === 'document.get:ok') {
+        this.setData({
+          shopUserInfo: res.data
+        })
+      }
+    })
   }
 })

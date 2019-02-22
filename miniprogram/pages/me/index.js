@@ -61,9 +61,13 @@ Page({
     console.log(e)
     const shopv = e.currentTarget.dataset.shopv || null
     if(shopv&&shopv.status==1){
-      wx.navigateTo({
-        url: './shop/detail/index',
-      })
+      const uid = this.data.dbUserInfo._id
+      if(uid){
+        console.log(uid)
+        wx.navigateTo({
+          url: './shop/detail/index?uid='+uid,
+        })
+      }
     }else{
       wx.navigateTo({
         url: './shop/verify/index',
