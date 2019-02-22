@@ -34,11 +34,11 @@
       <view class="down" bindtap="setContact">
         <view class="contact-info" wx:if="{{dbUserInfo.contact&&dbUserInfo.contact.phone}}">
           <view class="left">
-            <image style="width: 16px; height: 16px;font-size: 0;vertical-align:2.5px;margin-right:5px;" src="{{icon.phone}}"></image>
+            <image style="width: 16px; height: 16px;font-size: 0;margin-right:5px;" src="{{icon.phone}}"></image>
             <text class="ellipsis">{{dbUserInfo.contact.phone}}</text>
           </view>
           <view class="right" wx:if="{{dbUserInfo.contact.otherContact}}">
-            <image style="width: 16px; height: 16px;font-size: 0;vertical-align:2.5px;margin-right:5px;" src="{{icon.wechat}}"></image>
+            <image style="width: 16px; height: 16px;font-size: 0;margin-right:5px;" src="{{icon.wechat}}"></image>
             <text class="ellipsis">{{dbUserInfo.contact.otherContact}}</text>
           </view>
         </view>

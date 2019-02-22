@@ -15,7 +15,6 @@ page {
 .contact-info {
   display:inline-block;
   font-size: 14px;
-  vertical-align:middle;
 }
 
 .user-info {
@@ -29,7 +28,7 @@ page {
 .shop-area {
   background-color: #efefef;
   padding: 10px;
-  margin-top: 5px;
+  margin-top: 10px;
   height:68px;
   box-sizing:border-box;
   position: relative;

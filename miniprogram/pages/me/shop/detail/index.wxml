@@ -16,11 +16,11 @@
         <text class="ellipsis" style="color:#000;font-size:18px;font-weight:400;">{{shopUserInfo.wx.nickName}}</text>    
       </view>
       <view class="contact-info">
-        <view style="display:inline-block;margin-left:15px;vertical-align:middle;">
+        <view style="display:inline-block;margin-left:15px;">
           <image style="width: 20px; height: 20px;font-size: 0;margin-right:2px;" src="{{icon.phone}}"></image>
           <text class="ellipsis" style="width:100px;display:inline-block;">{{shopUserInfo.contact.phone}}</text>
         </view>
-        <view style="display:inline-block;margin-left:15px;vertical-align:middle;" wx:if="{{shopUserInfo.contact.otherContact}}">
+        <view style="display:inline-block;margin-left:15px;" wx:if="{{shopUserInfo.contact.otherContact}}">
           <image style="width: 20px; height: 20px;font-size: 0;margin-right:2px;" src="{{icon.wechat}}"></image>
           <text class="ellipsis" style="width:100px;display:inline-block;">{{shopUserInfo.contact.otherContact}}</text>
         </view>
