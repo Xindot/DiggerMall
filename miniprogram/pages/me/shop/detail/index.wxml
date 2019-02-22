@@ -7,54 +7,60 @@
 
   <view class="shop-main">
 
-    <view style="position:relative;margin-top:-49px;">
+    <view>
       <image wx:if="{{shopUserInfo.wx.avatarUrl}}" style="width: 60px; height: 60px;font-size: 0;border-radius: 50px;vertical-align:top;border:solid 4px #fff;" src="{{shopUserInfo.wx.avatarUrl}}"></image>
     </view>
 
     <view class="user-info">
-      <view style="width:64px;display:inline-block;text-align:left;">
-        <text style="color:#000;font-size:18px;font-weight:400;">{{shopUserInfo.wx.nickName}}</text>    
+      <view style="width:64px;display:inline-block;text-align:center;">
+        <text class="ellipsis" style="color:#000;font-size:18px;font-weight:400;">{{shopUserInfo.wx.nickName}}</text>    
       </view>
-      <view style="display:inline-block;font-size:12px;">
-        <view style="display:inline-block;margin-right:15px;">
-          <image style="width: 15px; height: 15px;font-size: 0;vertical-align:-3px;margin-right:2px;" src="{{icon.phone}}"></image>
-          <text>{{shopUserInfo.contact.phone}}</text>
+      <view class="contact-info">
+        <view style="display:inline-block;margin-left:15px;vertical-align:middle;">
+          <image style="width: 20px; height: 20px;font-size: 0;margin-right:2px;" src="{{icon.phone}}"></image>
+          <text class="ellipsis" style="width:100px;display:inline-block;">{{shopUserInfo.contact.phone}}</text>
         </view>
-        <view style="display:inline-block;" wx:if="{{shopUserInfo.contact.otherContact}}">
-          <image style="width: 15px; height: 15px;font-size: 0;vertical-align:-3px;margin-right:2px;" src="{{icon.wechat}}"></image>
-          <text>{{shopUserInfo.contact.otherContact}}</text>
+        <view style="display:inline-block;margin-left:15px;vertical-align:middle;" wx:if="{{shopUserInfo.contact.otherContact}}">
+          <image style="width: 20px; height: 20px;font-size: 0;margin-right:2px;" src="{{icon.wechat}}"></image>
+          <text class="ellipsis" style="width:100px;display:inline-block;">{{shopUserInfo.contact.otherContact}}</text>
         </view>
       </view>
     </view>
 
     <view class="shop-area">
-      <view>
-        <image wx:if="{{shopUserInfo.shop.logo}}" style="width: 60px; height: 60px;font-size: 0;vertical-align:top;" src="{{shopUserInfo.shop.logo}}"></image>
-        <view style="display:inline-block;padding:10px;">
-          <view>
-            <text style="color:#000;">{{shopUserInfo.shop.name}}</text>
-            <text style="font-size:10px;margin-left:10px;">
-              <text style="color:#1f87dd;">·</text>
-              <text>10分钟前登登录</text>
-            </text>
+      <view style="width:48px;display:inline-block;vertical-align:top;">
+        <image wx:if="{{shopUserInfo.shop.logo}}" style="width: 48px; height: 48px;font-size: 0;vertical-align:top;" src="{{shopUserInfo.shop.logo}}"></image>
+      </view>
+
+      <view style="display:inline-block;padding:0 10px;width:150px;" class="ellipsis">
+        <view>
+          <text style="color:#000;">{{shopUserInfo.shop.name}}</text>
+        </view>
+        <view class="shop-desc">
+          <view wx:if="{{shopUserInfo.shop.desc}}">
+            <text>{{shopUserInfo.shop.desc}}</text>    
           </view>
-          <view class="shop-desc">
-            <view wx:if="{{shopUserInfo.shop.desc}}">
-              <text>{{shopUserInfo.shop.desc}}</text>    
-            </view>
-            <view wx:if="{{shopUserInfo.shop.remark}}">
-              <text>{{shopUserInfo.shop.remark}}</text>    
-            </view>
+          <view wx:if="{{shopUserInfo.shop.remark}}">
+            <text>{{shopUserInfo.shop.remark}}</text>    
           </view>
         </view>
       </view>
-      <view>
 
+      <view class="pub-total">
+        <text>已发布:33</text>
       </view>
+      <view class="new-pub">
+        <text>新增宝贝</text>
+      </view>
+
     </view>
 
   </view>
+
   <view class="pub-list">
+    <view class="title-0">
+      <text>我的宝贝</text>
+    </view>
 
   </view>
 </view>

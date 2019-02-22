@@ -55,6 +55,8 @@
 }
 .contact-info > view > text {
   color: #000;
+  max-width:130px;
+  display:inline-block;
 }
 
 .shop-info {

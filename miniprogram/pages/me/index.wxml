@@ -34,12 +34,12 @@
       <view class="down" bindtap="setContact">
         <view class="contact-info" wx:if="{{dbUserInfo.contact&&dbUserInfo.contact.phone}}">
           <view class="left">
-            <image style="width: 16px; height: 16px;font-size: 0;vertical-align:-3px;margin-right:5px;" src="{{icon.phone}}"></image>
-            <text>{{dbUserInfo.contact.phone}}</text>
+            <image style="width: 16px; height: 16px;font-size: 0;vertical-align:2.5px;margin-right:5px;" src="{{icon.phone}}"></image>
+            <text class="ellipsis">{{dbUserInfo.contact.phone}}</text>
           </view>
           <view class="right" wx:if="{{dbUserInfo.contact.otherContact}}">
-            <image style="width: 16px; height: 16px;font-size: 0;vertical-align:-3px;margin-right:5px;" src="{{icon.wechat}}"></image>
-            <text>{{dbUserInfo.contact.otherContact}}</text>
+            <image style="width: 16px; height: 16px;font-size: 0;vertical-align:2.5px;margin-right:5px;" src="{{icon.wechat}}"></image>
+            <text class="ellipsis">{{dbUserInfo.contact.otherContact}}</text>
           </view>
         </view>
         <text wx:else class="color-1">设置联系方式</text>
@@ -56,16 +56,16 @@
           </view>
           <view class="right" data-shopv="{{dbUserInfo.shop_verify}}" bindtap="goVerifyPage">
             <text class="label-v-1" wx:if="{{dbUserInfo.shop_verify}}">
-              <text wx:if="{{dbUserInfo.shop_verify.status==0}}">店铺审核中...</text>
-              <text wx:if="{{dbUserInfo.shop_verify.status==1}}">店铺已审核通过</text>
+              <text wx:if="{{dbUserInfo.shop_verify.status==0}}">审核中...</text>
+              <text wx:if="{{dbUserInfo.shop_verify.status==1}}">已审核通过</text>
             </text>
-            <text class="label-v-0" wx:else>店铺未提交审核</text>
+            <text class="label-v-0" wx:else>未提交审核</text>
           </view>
         </view>
 
         <view class="middle" data-shopv="{{dbUserInfo.shop_verify}}" bindtap="goVerifyPage">
           <view class="left">
-            <image wx:if="{{dbUserInfo.shop.logo}}" style="width: 50px; height: 50px;font-size: 0;border-radius: 5px;vertical-align:top;" src="{{dbUserInfo.shop.logo}}"></image>
+            <image wx:if="{{dbUserInfo.shop.logo}}" style="width: 50px; height: 50px;font-size: 0;vertical-align:top;" src="{{dbUserInfo.shop.logo}}"></image>
           </view>
 
           <view class="center">
@@ -86,7 +86,7 @@
         <view class="down color-1" data-shopv="{{dbUserInfo.shop_verify}}" bindtap="goVerifyPage">
           <text wx:if="{{dbUserInfo.shop_verify}}">
             <text wx:if="{{dbUserInfo.shop_verify.status==0}}">查看审核详情</text>
-            <text wx:if="{{dbUserInfo.shop_verify.status==1}}">上传宝贝</text>
+            <text wx:if="{{dbUserInfo.shop_verify.status==1}}">新增宝贝</text>
           </text>
           <text wx:else>提交审核店铺</text>
         </view>
