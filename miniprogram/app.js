@@ -154,6 +154,16 @@ App({
     })
   },
 
+  // 获取小程序配置项
+  getGlobalConfig(category, callback) {
+    db.collection('wa_config').where({
+      category,
+    }).get().then(res => {
+      // console.log(res)
+      callback(res)
+    })
+  },
+
   globalData: {
     Version,
     env,

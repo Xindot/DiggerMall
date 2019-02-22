@@ -1,0 +1,37 @@
+
+.verify {
+  padding: 10px;
+  background-color: #fff;
+  text-align: center;
+}
+
+.verify-config {
+  padding: 50px 20px;
+}
+
+.verify-btn button {
+  margin: 10px 0;
+}
+
+
+
+.verify-audit {
+  background-color: #fff;
+  padding: 30px 10px;
+  text-align: center;
+}
+
+
+.admin-wx {
+  text-align: center;
+  margin: 100px 0;
+}
+.adminWxId-list .list-one {
+  padding: 10px;
+  display:inline-block;
+}
+.adminWxId-list .list-one text {
+  color: #000;
+  border: dashed 1px #999;
+  padding: 5px 8px;
+}

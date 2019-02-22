@@ -1,0 +1,30 @@
+
+.info-one {
+  background-color: #fff;
+  color: #000;
+}
+
+.main {
+  padding: 10px;
+}
+
+.shop,
+.shopkeeper,
+.audit,
+.operate {
+  margin-bottom: 10px;
+}
+
+.title-0 {
+  border-bottom: dashed 1px #efefef;
+  color: #666;
+  text-align: center;
+  padding: 10px;
+}
+.title-1 {
+  color: #666;
+}
+
+textarea {
+  width: 100%;
+}

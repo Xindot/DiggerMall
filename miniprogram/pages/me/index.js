@@ -10,6 +10,11 @@ Page({
   data: {
     Version,
     dbUserInfo: null,
+    icon: {
+      right: '../../images/common/right.png',
+      phone: '../../images/common/phone.png',
+      wechat: '../../images/common/wechat.png',
+    }
   },
   onLoad(options) {
     this.getUserInfo()
@@ -18,7 +23,10 @@ Page({
     
   },
   onShow() {
-    
+    if (app.globalData.showRefresh) {
+      this.getUserInfo()
+      app.globalData.showRefresh = false
+    }
   },
   onHide() {
     
@@ -47,6 +55,20 @@ Page({
     wx.navigateTo({
       url: './feedback/index',
     })
+  },
+  // 去店铺认证页面
+  goVerifyPage(e){
+    console.log(e)
+    const shopv = e.currentTarget.dataset.shopv || null
+    if(shopv&&shopv.status==1){
+      wx.navigateTo({
+        url: './shop/detail/index',
+      })
+    }else{
+      wx.navigateTo({
+        url: './shop/verify/index',
+      })
+    }
   },
   // 申请开通店铺
   applyOpenShop(){
@@ -93,5 +115,40 @@ Page({
       wx.hideLoading()
     })
   },
-
+  // 设置联系方式
+  setContact() {
+    const dbUserInfo = app.globalData.dbUserInfo || wx.getStorageSync('dbUserInfo')
+    const uid = dbUserInfo._id
+    if (!uid) {
+      wx.navigateTo({
+        url: '../me/login/index',
+      })
+      return
+    }
+    wx.navigateTo({
+      url: './contact/index?uid=' + uid
+    })
+  },
+  // 管理员审核店铺
+  adminAuditShop(){
+    wx.navigateTo({
+      url: './shop/admin/index'
+    })
+  },
+  // 复制UID
+  wxSetClipboardData(e) {
+    const uid = e.currentTarget.dataset.uid || ''
+    if (uid) {
+      wx.setClipboardData({
+        data: uid,
+        success: (res) => {
+          wx.getClipboardData({
+            success: (res) => {
+              console.log(res.data)
+            }
+          })
+        }
+      })
+    }
+  },
 })

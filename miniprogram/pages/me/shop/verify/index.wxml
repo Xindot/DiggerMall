@@ -1,0 +1,46 @@
+<view wx:if="{{shop_verify&&shop_verify.status==0}}" class="verify-audit">
+  <view style="font-size:12px;">
+    <text>您提交审核时间：{{shop_verify.created_at}}</text>
+  </view>
+  <view style="font-size:24px;color:#000;">
+    <text>您的店铺正在审核中...</text>
+  </view>
+  <view style="font-size:18px;">
+    <text>您可以加管理员微信询问审核情况</text>
+  </view>
+</view>
+
+<view wx:if="{{!shop_verify}}" class="verify">
+
+  <view class="verify-config" wx:if="{{config&&config.content}}">
+
+    <view wx:if="{{config.content.tips}}" style="border:dashed 1px #999;padding:10px;">
+      <text style="color: #000;font-size:18px;">{{config.content.tips}}</text>  
+    </view>
+
+  </view>
+
+  <view class="verify-btn">
+    <checkbox-group bindchange="checkboxChange">
+      <label class="checkbox" wx:for="{{ckb_items}}" wx:key="{{index}}">
+        <checkbox value="{{item.value}}" checked="{{item.checked}}"/>
+        <text>{{item.name}}</text>
+      </label>
+    </checkbox-group>
+    <button type="primary" disabled="{{!checkPass}}" bindtap="verifySubmit">提交审核</button>
+  </view>
+
+</view>
+
+
+<view class="admin-wx">
+  <view class="adminWxId-list" wx:if="{{config.content.adminWxId}}">
+    <view>
+      <text>管理员微信号</text>
+      <text style="font-size:12px;"> 可「点击复制」</text>
+    </view>
+    <view class="list-one" wx:for="{{config.content.adminWxId}}" wx:key="{{index}}" wx:if="{{item}}">
+      <text data-wxh="{{item}}" bindtap="wxSetClipboardData">{{item}}</text>
+    </view>
+  </view>
+</view>

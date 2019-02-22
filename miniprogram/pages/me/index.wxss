@@ -1,54 +1,115 @@
 
-
-
-
 .user-info,
 .shop-info,
-.feedback-area {
-  padding: 10px;
+.feedback-area,
+.admin-audit-shop {
   background-color: #fff;
 }
-
 
 .user-info {
   text-align: left;
 }
-.user-info .left {
+.user-info .up {
+  padding: 10px;
+}
+.user-info .up > view {
+  display: inline-block;
+  width: 50%;
+}
+.user-info .up .right {
+  text-align: right;
+}
+.user-info .middle {
+  padding: 10px;
+  border-top: dashed 1px #efefef;
+}
+.user-info .middle .left {
   display: inline-block;
   width: 20%;
   text-align: center;
+  vertical-align:middle;
 }
-.user-info .center{
+.user-info .middle .center{
   display: inline-block;
   width: 60%;
+  vertical-align:middle;
 }
-.user-info .right {
+.user-info .middle .right {
   display: inline-block;
-  width: 60%;
+  width: 20%;
   text-align: right;
+  vertical-align:middle;
+}
+.user-info .down {
+  text-align: center;
+  padding: 10px;
+  border-top: dashed 1px #efefef;
+}
+.contact-info > view {
+  display: inline-block;
+  width: 50%;
+  box-sizing: border-box;
+}
+.contact-info > view + view {
+  border-left: dashed 1px #efefef;
+}
+.contact-info > view > text {
+  color: #000;
 }
 
 .shop-info {
-  text-align: center;
+  text-align: left;
+}
+.shop-info .up {
+  padding: 10px;
+}
+.shop-info .up > view {
+  display: inline-block;
+  width: 50%;
+}
+.shop-info .up .right {
+  text-align: right;
+}
+.shop-info .middle {
+  padding: 10px;
+  border-top: dashed 1px #efefef;
 }
 .shop-info .middle .left {
   display: inline-block;
   width: 20%;
+  text-align: center;
+  vertical-align:middle;
 }
 .shop-info .middle .center {
   display: inline-block;
   width: 60%;
-  text-align: left;
+  vertical-align:middle;
 }
 .shop-info .middle .right {
   display: inline-block;
   width: 20%;
   text-align: right;
+  vertical-align:middle;
+}
+.shop-info .down {
+  text-align: center;
+  padding: 10px;
+  border-top: dashed 1px #efefef;
+}
+.shop-apply {
+  text-align: center;
+  padding: 10px;
 }
 
 
+.admin-audit-shop {
+  text-align: center;
+  padding: 10px;  
+}
+
 .feedback-area {
   text-align: center;
+  padding: 10px;  
 }
 
 
@@ -63,3 +124,4 @@
   opacity: .5;
   padding: 10px 0;
 }
+

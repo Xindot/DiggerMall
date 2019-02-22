@@ -28,7 +28,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 2,
+			"current": 5,
 			"list": [
 				{
 					"id": -1,
@@ -45,7 +45,26 @@
 				{
 					"id": -1,
 					"name": "申请开通店铺",
-					"pathName": "pages/me/shop/open/index"
+					"pathName": "pages/me/shop/open/index",
+					"query": ""
+				},
+				{
+					"id": 3,
+					"name": "提交审核店铺",
+					"pathName": "pages/me/shop/verify/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "管理员审核店铺",
+					"pathName": "pages/me/shop/admin/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "管理员审核店铺-详情页",
+					"pathName": "pages/me/shop/admin/detail/index",
+					"query": "auid=XG-hFXffS3SWmrpy"
 				}
 			]
 		}

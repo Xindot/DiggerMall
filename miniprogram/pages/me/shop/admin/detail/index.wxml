@@ -1,0 +1,104 @@
+<view>
+  <view class="info-one shop">
+    <view class="title-0">
+      <text>店铺信息</text>
+    </view>
+    <view class="main">
+      <view>
+        <text class="title-1">LOGO：</text>
+        <image wx:if="{{auditUserInfo.shop.logo}}" style="width: 50px; height: 50px;font-size: 0;border-radius: 50px;vertical-align:middle;" src="{{auditUserInfo.shop.logo}}"></image>
+      </view>
+      <view>
+        <text class="title-1">名称：</text>
+        <text>{{auditUserInfo.shop.name}}</text>
+      </view>
+      <view>
+        <text class="title-1">描述：</text>
+        <text>{{auditUserInfo.shop.desc}}</text>
+      </view>
+      <view>
+        <text class="title-1">备注：</text>
+        <text>{{auditUserInfo.shop.remark}}</text>
+      </view>
+      <view>
+        <text class="title-1">创建时间：</text>
+        <text>{{auditUserInfo.shop.created_at}}</text>
+      </view>
+      <view>
+        <text class="title-1">最新修改：</text>
+        <text>{{auditUserInfo.shop.updated_at}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="info-one shopkeeper">
+    <view class="title-0">
+      <text>店主信息</text>
+    </view>
+    <view class="main">
+      <view>
+        <text class="title-1">头像：</text>
+        <image wx:if="{{auditUserInfo.wx.avatarUrl}}" style="width: 50px; height: 50px;font-size: 0;border-radius: 50px;vertical-align:middle;" src="{{auditUserInfo.wx.avatarUrl}}"></image>
+      </view>
+      <view>
+        <text class="title-1">昵称：</text>
+        <text>{{auditUserInfo.wx.nickName}}</text>
+        <text> · {{auditUserInfo.wx.gender==1?'男':'女'}}</text>
+      </view>
+      <view>
+        <text class="title-1">地区：</text>
+        <text>{{auditUserInfo.wx.country}}</text>
+        <text>{{auditUserInfo.wx.province}}</text>
+        <text>{{auditUserInfo.wx.city}}</text>
+      </view>
+      <view>
+        <text class="title-1">手机号：</text>
+        <text>{{auditUserInfo.contact.phone}}</text>
+      </view>
+      <view>
+        <text class="title-1">微信号：</text>
+        <text>{{auditUserInfo.contact.otherContact}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="info-one audit">
+    <view class="title-0">
+      <text>店铺审核</text>
+    </view>
+    <view class="main">
+      <view>
+        <text class="title-1">提交时间：</text>
+        <text>{{auditUserInfo.shop_verify.created_at}}</text>
+      </view>
+      <view>
+        <text class="title-1">审核状态：</text>
+        <text>{{auditUserInfo.shop_verify.status==1?'已通过':'待审核'}}</text>
+      </view>
+      <view wx:if="{{auditUserInfo.shop_verify.status==1}}">
+        <text class="title-1">审核时间：</text>
+        <text>{{auditUserInfo.shop_verify.updated_at}}</text>
+      </view>
+      <view wx:if="{{auditUserInfo.shop_verify.status==1}}">
+        <text class="title-1">审核备注：</text>
+        <text>{{auditUserInfo.shop_verify.audit.remark}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view wx:if="{{auditUserInfo.shop_verify.status==0}}" class="info-one operate">
+    <view class="title-0">
+      <text>操作</text>
+    </view>
+    <view class="main">
+      <view>
+        <textarea placeholder="审核备注" value="{{auditForm.remark}}" bindinput="auditRemarkChange" auto-height style="min-height:80px;" maxlength="200"/>
+      </view>
+      <view bindtap="auditPass">
+        <button type="primary">通过审核</button>
+      </view>
+    </view>
+  </view>
+
+
+</view>

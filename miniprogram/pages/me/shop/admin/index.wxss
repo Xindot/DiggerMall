@@ -1,0 +1,27 @@
+
+
+.tabs > view {
+  display: inline-block;
+  width: 50%;
+  text-align: center;
+  padding: 10px 0;
+  opacity: .5;
+}
+.tabs > view.active {
+  opacity: 1;
+  color: #000;
+}
+
+.shop-list {
+  background-color: #fff;
+}
+.shop-list > view {
+  padding: 10px;
+}
+.shop-list > view + view {
+  border-top: dashed 1px #efefef;
+}
+.list-0 {
+  opacity: .5;
+  text-align: center;
+}

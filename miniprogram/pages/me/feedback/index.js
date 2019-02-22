@@ -66,7 +66,7 @@ Page({
         confirmColor: '#000'
       })
     } else {
-      db.collection('xpc_feedback').add({
+      db.collection('wa_feedback').add({
         data: fbSubmit
       }).then(res => {
         // console.log(res)
@@ -106,7 +106,7 @@ Page({
       setTimeout(function () {
         wx.hideLoading()
       }, Timeout.wx.hideLoading)
-      db.collection('xpc_feedback').where({
+      db.collection('wa_feedback').where({
         _openid: WXContext.OPENID // 填入当前用户 openid
       })
         .orderBy('created_at', 'desc')
@@ -137,7 +137,7 @@ Page({
         content: '该操作不可恢复',
         success: (res) => {
           if (res.confirm) {
-            db.collection('xpc_feedback').doc(fbid).remove().then(res => {
+            db.collection('wa_feedback').doc(fbid).remove().then(res => {
               // console.log(res)
               if (res.errMsg === 'document.remove:ok') {
                 this.getMyFeedbackList()
