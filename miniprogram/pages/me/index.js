@@ -35,7 +35,7 @@ Page({
     
   },
   onPullDownRefresh() {
-    
+    this.getUserInfo()    
   },
   onReachBottom() {
     

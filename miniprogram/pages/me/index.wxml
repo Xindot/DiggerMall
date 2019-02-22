@@ -8,7 +8,7 @@
           <text class="label-1">我的信息</text>
         </view>
         <view class="right">
-          <text class="label-v-0" wx:if="{{!(dbUserInfo.contact&&dbUserInfo.contact.phone)}}">未设置联系方式</text>
+          <text class="label-v-0" wx:if="{{!(dbUserInfo.contact&&dbUserInfo.contact.phone)}}" bindtap="setContact">未设置联系方式</text>
           <text wx:else class="user-id" data-uid="UID:{{dbUserInfo._id}}" bindtap="wxSetClipboardData">UID:{{dbUserInfo._id}}</text>
         </view>
 
@@ -54,7 +54,7 @@
           <view class="left">
             <text class="label-1">我的店铺</text>  
           </view>
-          <view class="right">
+          <view class="right" data-shopv="{{dbUserInfo.shop_verify}}" bindtap="goVerifyPage">
             <text class="label-v-1" wx:if="{{dbUserInfo.shop_verify}}">
               <text wx:if="{{dbUserInfo.shop_verify.status==0}}">店铺审核中...</text>
               <text wx:if="{{dbUserInfo.shop_verify.status==1}}">店铺已审核通过</text>

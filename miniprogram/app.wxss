@@ -24,20 +24,20 @@ page {
 }
 
 .label-1 {
-  font-size:12px;
+  font-size:14px;
   border:solid 1px 1f87dd;
-  padding:2px 5px;
+  padding:3px 6px;
   background-color:#1f87dd;
   color:#fff;
-  border-radius:5px 0 5px 0;
+  border-radius:50px 50px 50px 0;
 }
 .label-v-0 {
-  font-size: 12px;
+  font-size: 14px;
   border: dashed 1px #efefef;
   padding: 2px 5px;
 }
 .label-v-1 {
-  font-size: 12px;
+  font-size: 14px;
   color: #1f87dd;
   border: solid 1px #1f87dd;
   padding: 2px 5px;
