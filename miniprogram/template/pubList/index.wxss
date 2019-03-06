@@ -1,0 +1,57 @@
+
+.t-pub-list {
+  text-align: left;
+  padding: 5px;
+  background-color: #F6F6F6;
+}
+.t-pub-one {
+  width: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  font-size: 0;
+  padding: 5px;
+}
+
+.t-one-2 {
+  background-color: #fff;
+  box-shadow: 0 0 10px 0 #ddd;
+  border-radius: 2.5px;
+  overflow: hidden;
+}
+
+.t-img-div {
+  width: 100%;
+  padding-bottom: 100%;
+  overflow: hidden;
+  display: inline-block;
+  position: relative;
+}
+.t-img-div image {
+  width:100%;
+  height:100%;
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  margin:auto;
+}
+
+.t-info {
+  font-size: 16px;
+  padding: 2px 5px;
+}
+.t-info > view {
+  height: 22px;
+}
+.t-info .title {
+  color: #000;
+}
+.t-info .desc {
+  font-size: 12px;
+  height: 17px;
+}
+.t-info .price {
+  color: #1f87dd;
+  font-weight: 600;
+}

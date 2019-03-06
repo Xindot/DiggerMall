@@ -1,65 +1,62 @@
+const util = require('../../utils/util')
+
+const app = getApp()
+const db = app.globalData.db
+const Timeout = app.globalData.Timeout
+const Tips = app.globalData.Tips
+const Version = app.globalData.Version
+
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
+    shopPubList: null,
+  },
+  onLoad(options) {
+    this.getShopPubList()   
+  },
+  onReady() {
     
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
+  onShow() {
     
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
+  onHide() {
     
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
+  onUnload() {
     
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
+  onPullDownRefresh() {
+    this.getShopPubList()    
+  },
+  onReachBottom() {
     
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
+  onShareAppMessage() {
     
   },
+  // 获取宝贝列表
+  getShopPubList() {
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
+    wx.showLoading({
+      title: Tips.wx.showLoading,
+    })
+    setTimeout(function () {
+      wx.hideLoading()
+    }, Timeout.wx.hideLoading)
     
+    db.collection('wa_pub').get().then(res => {
+      console.log('shopPubList=>', res)
+      if (res.errMsg === 'collection.get:ok') {
+        this.setData({
+          shopPubList: res.data || []
+        })
+      }
+
+      wx.stopPullDownRefresh()
+      wx.hideLoading()
+
+    }).catch(err => {
+      console.error(err)
+    })
   },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-    
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-    
-  }
 })

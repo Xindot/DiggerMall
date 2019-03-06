@@ -120,6 +120,7 @@ App({
       sizeType: ['compressed'],
       sourceType: ['album', 'camera'],
       success: function (res) {
+        console.log(res)
         wx.showLoading({
           title: '上传中',
         })

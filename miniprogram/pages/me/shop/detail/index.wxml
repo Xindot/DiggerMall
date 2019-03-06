@@ -46,10 +46,7 @@
         </view>
       </view>
 
-      <view class="pub-total">
-        <text>已发布:33</text>
-      </view>
-      <view class="new-pub">
+      <view class="new-pub" bindtap="goAddOrEditPage">
         <text>新增宝贝</text>
       </view>
 
@@ -59,8 +56,11 @@
 
   <view class="pub-list">
     <view class="title-0">
-      <text>我的宝贝</text>
+      <text>我的宝贝({{shopPubList.length}})</text>
     </view>
+
+    <import src="../../../../template/pubList/index.wxml"/>
+    <template is="pubList" data="{{pubList:shopPubList}}"/>
 
   </view>
 </view>

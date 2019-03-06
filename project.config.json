@@ -28,7 +28,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 6,
+			"current": 7,
 			"list": [
 				{
 					"id": -1,
@@ -71,6 +71,12 @@
 					"name": "我的店铺详情",
 					"pathName": "pages/me/shop/detail/index",
 					"query": "uid=XG_Rp97E7L4wQjWJ"
+				},
+				{
+					"id": -1,
+					"name": "新增或编辑宝贝",
+					"pathName": "pages/pub/addOrEdit/index",
+					"query": ""
 				}
 			]
 		}

@@ -1,0 +1,23 @@
+
+<template name="pubList">
+  <view class="t-pub-list" wx:if="{{pubList}}">
+    <view wx:for="{{pubList}}" wx:key="{{index}}" class="t-pub-one">
+      <view class="t-one-2">
+        <view class="t-img-div">
+          <image src="{{item.imgs[0]}}" mode="aspectFill"></image>
+        </view>
+        <view class="t-info">
+          <view class="title ellipsis">
+            <text>{{item.title}}</text>
+          </view>
+          <view class="desc ellipsis">
+            <text>{{item.desc}}</text>
+          </view>
+          <view class="price ellipsis">
+            <text>￥{{item.price}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>

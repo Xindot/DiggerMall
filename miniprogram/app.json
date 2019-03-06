@@ -2,7 +2,7 @@
   "pages": [
     "pages/pub/index",
     "pages/pub/detail/index",
-    "pages/pub/edit/index",
+    "pages/pub/addOrEdit/index",
     "pages/me/index",
     "pages/me/login/index",
     "pages/me/detail/index",

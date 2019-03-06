@@ -1,15 +1,19 @@
 <view>
+
   <view class="search-area">
+    <input placeholder="搜索宝贝标题/描述"></input>
+  </view>
+
+  <view class="t-list" wx:if="{{shopPubList}}">
+
+    <import src="../../template/pubList/index.wxml"/>
+    <template is="pubList" data="{{pubList:shopPubList}}"/>
+
+    <view class="t-pub-length">
+      <text>共{{shopPubList.length}}条记录</text>
+    </view>
 
   </view>
-  <view>
-    <view class="title-1">
-      <text>最新好机</text>  
-    </view>
-    <view class="list">
-      <view class="list-one">
 
-      </view>
-    </view>
-  </view>
+
 </view>

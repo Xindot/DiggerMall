@@ -3,7 +3,7 @@ page {
 }
 
 .shop-main {
-  padding: 0 15px;
+  padding: 0 10px;
   /* transform:translateY(-60px);
   -ms-transform:translateY(-60px);
   -moz-transform:translateY(-60px);
@@ -26,7 +26,7 @@ page {
 }
 
 .shop-area {
-  background-color: #efefef;
+  background-color: #F6F6F6;
   padding: 10px;
   margin-top: 10px;
   height:68px;
@@ -48,7 +48,7 @@ page {
 }
 .new-pub {
   position:absolute;
-  top:30px;
+  top:20px;
   right:10px;
   height:28px;
   line-height:28px;
@@ -61,6 +61,18 @@ page {
 }
 
 .pub-list {
-  padding: 15px;
+  margin-top: 15px;
+  padding: 15px 0;
   text-align: center;
+  background-color: #F6F6F6;
 }
+.pub-list .title-0 {
+  margin-bottom: 5px;
+  color: #1f87dd;
+}
+.pub-list .title-0 > text {
+  border-bottom: solid 2px #1f87dd;
+}
+
+
+@import "../../../../template/pubList/index.wxss";
