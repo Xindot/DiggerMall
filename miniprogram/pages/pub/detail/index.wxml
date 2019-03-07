@@ -1,2 +1,50 @@
-<!--pages/pub/detail/index.wxml-->
-<text>pages/pub/detail/index.wxml</text>
+<view>
+
+  <view class="shop-info" wx:if="{{shopDetail.shop}}" id="{{shopDetail._id}}" bindtap="goShopDetailPage">
+    <view>
+      <image wx:if="{{shopDetail.shop.logo}}" style="width: 40px; height: 40px;font-size: 0;border-radius: 2.5px;vertical-align:middle;" src="{{shopDetail.shop.logo}}"></image>
+      <view class="shop-text">
+        <view style="color:#000;" class="ellipsis">
+          <text>{{shopDetail.shop.name}}</text>
+        </view>
+        <view style="font-size:12px;" class="ellipsis">
+          <text>{{shopDetail.shop.name}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="pub-info">
+    <view>
+      <view style="color:#000;">
+        <text>{{pubDetail.title}}</text>
+      </view>
+      <view style="font-size:12px;">
+        <text>{{pubDetail.desc}}</text>
+      </view>
+      <view style="color:#1f87dd;font-weight:600;">
+        <text>￥{{pubDetail.price}}</text>
+      </view>
+    </view>
+    <view class="img-list">
+      <view wx:for="{{pubDetail.imgs}}" wx:key="{{index}}">
+        <image mode="widthFix" src="{{item}}"></image>
+      </view>
+    </view>
+  </view>
+
+  <view style="height:54px;"></view>
+
+  <view class="contact-info">
+    <view class="ellipsis" data-phone="{{shopDetail.contact.phone}}" bindtap="callPhone">
+      <image style="width: 16px; height: 16px;font-size: 0;margin-right:5px;" src="{{icon.phone}}"></image>
+      <text>{{shopDetail.contact.phone}}</text>
+    </view>
+    <view class="ellipsis" wx:if="{{shopDetail.contact.otherContact}}" data-wechat="{{shopDetail.contact.otherContact}}" bindtap="wxSetClipboardData">
+      <image style="width: 16px; height: 16px;font-size: 0;margin-right:5px;" src="{{icon.wechat}}"></image>
+      <text class="remark" style="font-size:10px;">点击复制</text>
+      <text>{{shopDetail.contact.otherContact}}</text>
+    </view>
+  </view>
+
+</view>

@@ -1,8 +1,13 @@
 
 <template name="pubList">
   <view class="t-pub-list" wx:if="{{pubList}}">
-    <view wx:for="{{pubList}}" wx:key="{{index}}" class="t-pub-one">
+    <view wx:for="{{pubList}}" wx:key="{{index}}" class="t-pub-one" id="{{item._id}}" bindtap="goPubEditOrDetailPage">
       <view class="t-one-2">
+        <view class="status-0" wx:if="{{item.status!=1}}">
+          <view>
+            <text>已下架</text>
+          </view>
+        </view>
         <view class="t-img-div">
           <image src="{{item.imgs[0]}}" mode="aspectFill"></image>
         </view>

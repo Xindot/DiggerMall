@@ -2,7 +2,6 @@
 
 .search-area {
   height: 35px;
-  box-shadow: 0 0 10px 0 #ddd;
   padding: 0 10px;
 }
 .search-area input {
@@ -14,8 +13,8 @@
 
 .t-pub-length {
   text-align: center;
-  font-size: 14px;
-  margin-bottom: 10px;
+  font-size: 14px; 
+  margin-top: 8px;
 }
 
 @import "../../template/pubList/index.wxss";

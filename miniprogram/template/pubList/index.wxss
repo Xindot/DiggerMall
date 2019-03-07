@@ -17,6 +17,7 @@
   box-shadow: 0 0 10px 0 #ddd;
   border-radius: 2.5px;
   overflow: hidden;
+  position: relative;
 }
 
 .t-img-div {
@@ -39,7 +40,8 @@
 
 .t-info {
   font-size: 16px;
-  padding: 2px 5px;
+  padding: 5px;
+  padding-top: 2px;
 }
 .t-info > view {
   height: 22px;
@@ -54,4 +56,27 @@
 .t-info .price {
   color: #1f87dd;
   font-weight: 600;
+}
+
+
+
+.status-0 {
+  position: absolute;
+  z-index:10;
+  left: -30px;
+  top: -30px;
+  width: 60px;
+  height: 60px;
+  background-color: #999;
+  transform:rotate(-45deg);
+  -ms-transform:rotate(-45deg);
+  -moz-transform:rotate(-45deg);
+  -webkit-transform:rotate(-45deg);
+  -o-transform:rotate(-45deg);
+}
+.status-0 > view {
+  text-align: center;
+  color: #fff;
+  font-size: 10px;
+  margin-top: 45px;
 }

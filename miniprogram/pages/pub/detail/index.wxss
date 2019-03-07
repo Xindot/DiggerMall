@@ -1,1 +1,55 @@
-/* pages/pub/detail/index.wxss */
+
+
+.shop-info {
+  padding: 10px;
+  background-color: #fff;
+  position: relative;
+}
+.shop-text {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 0 10px;
+}
+
+.pub-info {
+  padding: 10px;
+  background-color: #fff;
+  border-top: dashed 1px #efefef;
+}
+.img-list {
+  font-size: 0;
+}
+.img-list image {
+  width: 100%;
+  border-radius: 2.5px;
+  margin-top: 10px;
+}
+
+
+.contact-info {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  height: 44px;
+  line-height: 44px;
+  background-color: #fff;
+  box-shadow: 0 0 10px 0 #ddd;
+}
+.contact-info > view {
+  display: inline-block;
+  width: 50%;
+  box-sizing: border-box;
+  padding: 0 10px;
+  position: relative;
+}
+.contact-info > view+view {
+  border-left: dashed 1px #efefef;
+}
+.contact-info > view .remark {
+  position: absolute;
+  bottom: 0;
+  left: 5px;
+  height:14px;
+  line-height:14px;
+  opacity: .5;
+}

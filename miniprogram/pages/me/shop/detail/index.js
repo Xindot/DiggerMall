@@ -10,6 +10,7 @@ Page({
   data: {
     uid:null,
     shopUserInfo: null,
+    shopPubCount: [0,0],
     shopPubList: [],
     shop: {
       dbg: ['cloud://test-5ada43.7465-test-5ada43/static/shop/d-bg/0001.jpeg']
@@ -66,8 +67,36 @@ Page({
         })
         const _openid = res.data._openid
         if (_openid) {
+          this.getShopPubCount(_openid)
           this.getShopPubList(_openid)
         }
+      }
+    })
+  },
+  // 获取宝贝总数
+  getShopPubCount(_openid) {
+    const shopPubCount = this.data.shopPubCount
+    db.collection('wa_pub').where({
+      _openid,
+    }).count().then(res => {
+      console.log(res)
+      if (res.errMsg === 'collection.count:ok') {
+        shopPubCount[1] = res.total || 0
+        this.setData({
+          shopPubCount,
+        })
+      }
+    })
+    db.collection('wa_pub').where({
+      status: 1,
+      _openid,
+    }).count().then(res => {
+      console.log(res)
+      if (res.errMsg === 'collection.count:ok') {
+        shopPubCount[0] = res.total || 0
+        this.setData({
+          shopPubCount,
+        })
       }
     })
   },
@@ -87,9 +116,45 @@ Page({
     })
   },
   // 去新增/编辑宝贝页面 
-  goAddOrEditPage(){
+  goPubAddPage(){
     wx.navigateTo({
       url: '../../../pub/addOrEdit/index',
     })
-  }
+  },
+  // 去编辑页面
+  goPubEditOrDetailPage(e){
+    console.log(e)
+    const pid = e.currentTarget.id || ''
+    if(pid){
+      wx.navigateTo({
+        url: `../../../pub/addOrEdit/index?pid=${pid}`,
+      })
+    }
+  },
+  // 复制
+  wxSetClipboardData(e) {
+    const wechat = e.currentTarget.dataset.wechat || ''
+    if (wechat) {
+      wx.setClipboardData({
+        data: wechat,
+        success: (res) => {
+          wx.getClipboardData({
+            success: (res) => {
+              console.log(res.data)
+            }
+          })
+        }
+      })
+    }
+  },
+  // 打电话
+  callPhone(e) {
+    // console.log(e)
+    const phoneNumber = e.currentTarget.dataset.phone || ''
+    if (phoneNumber) {
+      wx.makePhoneCall({
+        phoneNumber,
+      })
+    }
+  },
 })

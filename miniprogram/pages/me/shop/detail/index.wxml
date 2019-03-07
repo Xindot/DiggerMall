@@ -16,11 +16,11 @@
         <text class="ellipsis" style="color:#000;font-size:18px;font-weight:400;">{{shopUserInfo.wx.nickName}}</text>    
       </view>
       <view class="contact-info">
-        <view style="display:inline-block;margin-left:15px;">
+        <view style="display:inline-block;margin-left:15px;" data-phone="{{shopUserInfo.contact.phone}}" bindtap="callPhone">
           <image style="width: 20px; height: 20px;font-size: 0;margin-right:2px;" src="{{icon.phone}}"></image>
           <text class="ellipsis" style="width:100px;display:inline-block;">{{shopUserInfo.contact.phone}}</text>
         </view>
-        <view style="display:inline-block;margin-left:15px;" wx:if="{{shopUserInfo.contact.otherContact}}">
+        <view style="display:inline-block;margin-left:15px;" wx:if="{{shopUserInfo.contact.otherContact}}" data-wechat="{{shopUserInfo.contact.otherContact}}" bindtap="wxSetClipboardData">
           <image style="width: 20px; height: 20px;font-size: 0;margin-right:2px;" src="{{icon.wechat}}"></image>
           <text class="ellipsis" style="width:100px;display:inline-block;">{{shopUserInfo.contact.otherContact}}</text>
         </view>
@@ -29,7 +29,7 @@
 
     <view class="shop-area">
       <view style="width:48px;display:inline-block;vertical-align:top;">
-        <image wx:if="{{shopUserInfo.shop.logo}}" style="width: 48px; height: 48px;font-size: 0;vertical-align:top;" src="{{shopUserInfo.shop.logo}}"></image>
+        <image wx:if="{{shopUserInfo.shop.logo}}" style="width: 48px; height: 48px;border-radius: 2.5px;font-size: 0;vertical-align:top;" src="{{shopUserInfo.shop.logo}}"></image>
       </view>
 
       <view style="display:inline-block;padding:0 10px;width:150px;" class="ellipsis">
@@ -46,7 +46,7 @@
         </view>
       </view>
 
-      <view class="new-pub" bindtap="goAddOrEditPage">
+      <view class="new-pub" bindtap="goPubAddPage">
         <text>新增宝贝</text>
       </view>
 
@@ -56,7 +56,7 @@
 
   <view class="pub-list">
     <view class="title-0">
-      <text>我的宝贝({{shopPubList.length}})</text>
+      <text>我的宝贝({{shopPubCount[0]}}/{{shopPubCount[1]}})</text>
     </view>
 
     <import src="../../../../template/pubList/index.wxml"/>

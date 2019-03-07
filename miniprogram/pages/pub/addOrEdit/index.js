@@ -15,17 +15,22 @@ Array.prototype.remove = function (val) {
 
 Page({
   data: {
+    pid: null,
     pubForm:{
       title:'',
       desc:'',
       price:'',
       remark:'',
-      imgs: []
+      imgs: [],
+      status:1,
     }
   },
   onLoad(options) {
     const pid = options.pid
     if(pid){
+      this.setData({
+        pid,
+      })
       this.getPubDetail(pid)
     }
   },
@@ -49,6 +54,25 @@ Page({
   },
   onShareAppMessage() {
     
+  },
+  getPubDetail(pid){
+    db.collection('wa_pub').doc(pid).get().then(res => {
+      console.log(res)
+      if (res.errMsg ==='document.get:ok'){
+        const pubForm = {
+          title: res.data.title || '',
+          desc: res.data.desc || '',
+          price: res.data.price || '',
+          remark: res.data.remark || '',
+          imgs: res.data.imgs || '',
+          status: res.data.status ? 1 : 0,
+        }
+        // console.log(pubForm)
+        this.setData({
+          pubForm,
+        })
+      }
+    })
   },
   // 标题改变
   titleChange(e){
@@ -78,6 +102,14 @@ Page({
     const val = e.detail.value || ''
     this.setData({
       'pubForm.remark': val
+    })
+  },
+  // 状态改变
+  statusChange(e){
+    // console.log(e)
+    const val = e.detail.value || ''
+    this.setData({
+      'pubForm.status': val ? 1 : 0
     })
   },
   // 上传图片
@@ -182,34 +214,60 @@ Page({
     }
     // console.log(pubForm)
 
-    db.collection('wa_pub').add({
-      data: {
-        created_at: util.formatTime(new Date(), '-:'),
-        updated_at: util.formatTime(new Date(), '-:'),
-        ...pubForm
-      }
-    }).then(res => {
-      console.log(res)
-      if (res.errMsg ==='collection.add:ok'){
-
-        wx.showModal({
-          title: '',
-          content: '提交成功',
-          showCancel: false,
-          success: (res) => {
-            if (res.confirm) {
-              app.globalData.showRefresh = true
-              wx.navigateBack({
-                delta: 1
-              })
+    const pid = this.data.pid || ''
+    if(pid){
+      db.collection('wa_pub').doc(pid).update({
+        data: {
+          updated_at: util.formatTime(new Date(), '-:'),
+          ...pubForm
+        }
+      }).then(res=>{
+        console.log(res)
+        if (res.errMsg === 'document.update:ok') {
+          wx.showModal({
+            title: '',
+            content: '更新成功',
+            showCancel: false,
+            success: (res) => {
+              if (res.confirm) {
+                app.globalData.showRefresh = true
+                wx.navigateBack({
+                  delta: 1
+                })
+              }
             }
-          }
-        })
-
-      }
-    }).catch(err => {
-      console.error(err)
-    })
-
+          })
+        }
+      }).catch(err=>{
+        console.error(err)
+      })
+    }else{
+      db.collection('wa_pub').add({
+        data: {
+          created_at: util.formatTime(new Date(), '-:'),
+          updated_at: util.formatTime(new Date(), '-:'),
+          ...pubForm
+        }
+      }).then(res => {
+        console.log(res)
+        if (res.errMsg === 'collection.add:ok') {
+          wx.showModal({
+            title: '',
+            content: '新增成功',
+            showCancel: false,
+            success: (res) => {
+              if (res.confirm) {
+                app.globalData.showRefresh = true
+                wx.navigateBack({
+                  delta: 1
+                })
+              }
+            }
+          })
+        }
+      }).catch(err => {
+        console.error(err)
+      })
+    }
   }
 })

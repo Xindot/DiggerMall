@@ -28,7 +28,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 7,
+			"current": 8,
 			"list": [
 				{
 					"id": -1,
@@ -73,10 +73,16 @@
 					"query": "uid=XG_Rp97E7L4wQjWJ"
 				},
 				{
-					"id": -1,
+					"id": 7,
 					"name": "新增或编辑宝贝",
 					"pathName": "pages/pub/addOrEdit/index",
-					"query": ""
+					"query": "pid=XH-NtXffS3SW5hgq"
+				},
+				{
+					"id": -1,
+					"name": "宝贝详情",
+					"pathName": "pages/pub/detail/index",
+					"query": "pid=XH-NtXffS3SW5hgq"
 				}
 			]
 		}

@@ -4,14 +4,14 @@
     <input placeholder="搜索宝贝标题/描述"></input>
   </view>
 
+  <view class="t-pub-length">
+    <text>搜索到{{shopPubCount}}个宝贝</text>
+  </view>
+
   <view class="t-list" wx:if="{{shopPubList}}">
 
     <import src="../../template/pubList/index.wxml"/>
     <template is="pubList" data="{{pubList:shopPubList}}"/>
-
-    <view class="t-pub-length">
-      <text>共{{shopPubList.length}}条记录</text>
-    </view>
 
   </view>
 

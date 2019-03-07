@@ -7,14 +7,13 @@
 .pub-form > view + view {
   margin-top: 15px;
 }
-.pub-form > view > text {
-  font-size: 14px;
-}
 
 .pub-form input,
 .pub-form textarea {
   color: #000;
   width: 100%;
+  font-size: 18px;
+  padding: 0;
 }
 
 textarea {

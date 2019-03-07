@@ -13,24 +13,54 @@
   </view>
 
   <view>
-    <text wx:if="{{pubForm.title}}">标题</text>
-    <input placeholder="请填写标题" bindinput="titleChange"></input>
+    <view wx:if="{{pubForm.title}}">
+      <text style="font-size:15px;">标题</text>
+      <text style="font-size:10px;">/最多50字</text>
+    </view>
+    <view>
+      <textarea placeholder="请填写标题" value="{{pubForm.title}}" bindinput="titleChange" auto-height maxlength="50"/>
+    </view>
   </view>
 
   <view>
-    <text wx:if="{{pubForm.desc}}">描述</text>
-    <textarea placeholder="请填写描述" bindinput="descChange" auto-height></textarea>
+    <view wx:if="{{pubForm.desc}}">
+      <text style="font-size:15px;">描述</text>
+      <text style="font-size:10px;">/最多500字</text>
+    </view>
+    <view>
+      <textarea placeholder="请填写描述" value="{{pubForm.desc}}" bindinput="descChange" auto-height maxlength="500"/>  
+    </view>
   </view>
 
   <view>
-    <text wx:if="{{pubForm.price}}">价格</text>
-    <input placeholder="请填写价格" bindinput="priceChange"></input>
+    <view wx:if="{{pubForm.price}}">
+      <text style="font-size:15px;">价格</text>
+    </view>
+    <view>
+      <textarea type="digit" placeholder="请填写价格" value="{{pubForm.price}}" bindinput="priceChange" auto-height maxlength="10"/>  
+    </view>
   </view>
 
   <view>
-    <text wx:if="{{pubForm.remark}}">备注</text>
-    <textarea placeholder="备注" bindinput="remarkChange" auto-height></textarea>
+    <view wx:if="{{pubForm.remark}}">
+      <text style="font-size:15px;">备注</text>
+      <text style="font-size:10px;">/最多200字</text>
+    </view>
+    <view>
+      <textarea placeholder="备注" value="{{pubForm.remark}}" bindinput="remarkChange" auto-height maxlength="200"/>  
+    </view>
   </view>
+
+  <view>
+    <view>
+      <text style="font-size:15px;">发布状态</text>
+    </view>
+    <view>
+      <switch style="zoom:.8;" checked="{{pubForm.status==1}}" bindchange="statusChange"/>
+    </view>
+  </view>
+
+  <view style="height:10px;"></view>
 
   <view bindtap="submit">
     <button type="primary">提交</button>
