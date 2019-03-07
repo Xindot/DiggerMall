@@ -9,6 +9,7 @@ const Version = app.globalData.Version
 Page({
   data: {
     uid:null,
+    isMe: false,
     shopUserInfo: null,
     shopPubCount: [0,0],
     shopPubList: [],
@@ -67,11 +68,27 @@ Page({
         })
         const _openid = res.data._openid
         if (_openid) {
+          this.checkUser(_openid)
           this.getShopPubCount(_openid)
           this.getShopPubList(_openid)
         }
       }
     })
+  },
+  // 判断用户
+  checkUser(_openid){
+    const dbUserInfo = app.globalData.dbUserInfo || wx.getStorageInfoSync('dbUserInfo')
+    if (dbUserInfo._openid) {
+      if (dbUserInfo._openid === _openid){
+        this.setData({
+          isMe: true
+        })
+      }else{
+        this.setData({
+          isMe: false
+        })
+      }
+    }
   },
   // 获取宝贝总数
   getShopPubCount(_openid) {
@@ -121,11 +138,15 @@ Page({
       url: '../../../pub/addOrEdit/index',
     })
   },
-  // 去编辑页面
+  // 去编辑/详情页面
   goPubEditOrDetailPage(e){
-    console.log(e)
+    const isMe = this.data.isMe || false
+    if(!isMe){
+      return
+    }
+    // console.log(e)
     const pid = e.currentTarget.id || ''
-    if(pid){
+    if (pid){
       wx.navigateTo({
         url: `../../../pub/addOrEdit/index?pid=${pid}`,
       })

@@ -15,12 +15,12 @@
       <view style="width:64px;display:inline-block;text-align:center;">
         <text class="ellipsis" style="color:#000;font-size:18px;font-weight:400;">{{shopUserInfo.wx.nickName}}</text>    
       </view>
-      <view class="contact-info">
-        <view style="display:inline-block;margin-left:15px;" data-phone="{{shopUserInfo.contact.phone}}" bindtap="callPhone">
+      <view wx:if="{{shopUserInfo.contact}}" class="contact-info">
+        <view wx:if="{{shopUserInfo.contact.phone}}" style="display:inline-block;margin-left:15px;" data-phone="{{shopUserInfo.contact.phone}}" bindtap="callPhone">
           <image style="width: 20px; height: 20px;font-size: 0;margin-right:2px;" src="{{icon.phone}}"></image>
           <text class="ellipsis" style="width:100px;display:inline-block;">{{shopUserInfo.contact.phone}}</text>
         </view>
-        <view style="display:inline-block;margin-left:15px;" wx:if="{{shopUserInfo.contact.otherContact}}" data-wechat="{{shopUserInfo.contact.otherContact}}" bindtap="wxSetClipboardData">
+        <view wx:if="{{shopUserInfo.contact.otherContact}}" style="display:inline-block;margin-left:15px;" data-wechat="{{shopUserInfo.contact.otherContact}}" bindtap="wxSetClipboardData">
           <image style="width: 20px; height: 20px;font-size: 0;margin-right:2px;" src="{{icon.wechat}}"></image>
           <text class="ellipsis" style="width:100px;display:inline-block;">{{shopUserInfo.contact.otherContact}}</text>
         </view>
@@ -46,7 +46,7 @@
         </view>
       </view>
 
-      <view class="new-pub" bindtap="goPubAddPage">
+      <view wx:if="{{isMe}}" class="new-pub" bindtap="goPubAddPage">
         <text>新增宝贝</text>
       </view>
 
@@ -56,7 +56,7 @@
 
   <view class="pub-list">
     <view class="title-0">
-      <text>我的宝贝({{shopPubCount[0]}}/{{shopPubCount[1]}})</text>
+      <text>{{isMe?'我':'TA'}}的宝贝({{shopPubCount[0]}}/{{shopPubCount[1]}})</text>
     </view>
 
     <import src="../../../../template/pubList/index.wxml"/>
