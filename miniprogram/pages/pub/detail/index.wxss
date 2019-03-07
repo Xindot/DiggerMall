@@ -35,6 +35,7 @@
   background-color: #fff;
   box-shadow: 0 0 10px 0 #ddd;
   text-align: center;
+  color: #1f87dd;
 }
 .contact-info > view {
   display: inline-block;

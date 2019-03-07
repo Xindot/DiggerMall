@@ -14,8 +14,8 @@
     </view>
   </view>
 
-  <view class="pub-info">
-    <view>
+  <view class="pub-info" wx:if="{{pubDetail}}">
+    <view wx:if="{{pubDetail.title}}">
       <view style="color:#000;">
         <text>{{pubDetail.title}}</text>
       </view>
