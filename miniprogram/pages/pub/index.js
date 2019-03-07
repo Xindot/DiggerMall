@@ -29,7 +29,8 @@ Page({
     
   },
   onPullDownRefresh() {
-    this.getShopPubList()    
+    this.getShopPubCount()
+    this.getShopPubList() 
   },
   onReachBottom() {
     

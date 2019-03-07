@@ -35,7 +35,7 @@
 
   <view style="height:54px;"></view>
 
-  <view class="contact-info">
+  <view class="contact-info" wx:if="{{shopDetail.contact}}">
     <view class="ellipsis" data-phone="{{shopDetail.contact.phone}}" bindtap="callPhone">
       <image style="width: 16px; height: 16px;font-size: 0;margin-right:5px;" src="{{icon.phone}}"></image>
       <text>{{shopDetail.contact.phone}}</text>

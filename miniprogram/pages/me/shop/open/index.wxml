@@ -14,7 +14,7 @@
       <text>店铺名称</text>
       <text style="color:red;"> * </text>
     </text>
-    <input placeholder="店铺名称" value="{{shopInfo.name}}" bindinput="shopNameChange" maxlength="50"/>
+    <textarea placeholder="店铺名称" value="{{shopInfo.name}}" bindinput="shopNameChange" auto-height style="min-height:50px;" maxlength="50"/>
   </view>
 
   <view class="gap-1"></view>
