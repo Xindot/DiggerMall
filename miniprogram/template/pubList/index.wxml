@@ -1,7 +1,7 @@
 
 <template name="pubList">
   <view class="t-pub-list" wx:if="{{pubList}}">
-    <view wx:for="{{pubList}}" wx:key="{{index}}" class="t-pub-one" id="{{item._id}}" bindtap="goPubEditOrDetailPage">
+    <view wx:for="{{pubList}}" wx:key="{{index}}" class="t-pub-one" id="{{item._id}}" bindtap="goPubDetailPage">
       <view class="t-one-2" wx:if="{{item}}">
         <view class="status-0" wx:if="{{item.status!=1}}">
           <view>

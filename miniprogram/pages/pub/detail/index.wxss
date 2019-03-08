@@ -5,7 +5,7 @@
 }
 .img-list {
   font-size: 0;
-    border-top: dashed 1px #efefef;
+  border-top: dashed 1px #efefef;
 }
 .img-list image {
   width: 100%;
@@ -13,9 +13,22 @@
   margin-top: 10px;
 }
 
+.is-me {
+  position: fixed;
+  z-index: 12;
+  width: 100%;
+  bottom: 0;
+  height: 44px;
+  line-height: 44px;
+  text-align: center;
+  background-color: #fff;
+  box-shadow: 0 0 10px 0 #ddd;
+  color: #1f87dd;
+}
 
 .contact-info {
   position: fixed;
+  z-index: 11;
   width: 100%;
   bottom: 0;
   height: 44px;

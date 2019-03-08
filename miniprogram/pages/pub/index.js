@@ -281,7 +281,7 @@ Page({
     }
   },
   // 去详情页面
-  goPubEditOrDetailPage(e) {
+  goPubDetailPage(e) {
     // console.log(e)
     const pid = e.currentTarget.id || ''
     if (pid) {

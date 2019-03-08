@@ -152,16 +152,12 @@ Page({
     })
   },
   // 去宝贝编辑/详情页面
-  goPubEditOrDetailPage(e){
-    const isMe = this.data.isMe || false
-    if(!isMe){
-      return
-    }
+  goPubDetailPage(e){
     // console.log(e)
     const pid = e.currentTarget.id || ''
     if (pid){
       wx.navigateTo({
-        url: `../../../pub/addOrEdit/index?pid=${pid}`,
+        url: `../../../pub/detail/index?pid=${pid}`,
       })
     }
   },

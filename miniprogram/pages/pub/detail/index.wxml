@@ -19,7 +19,11 @@
     </view>
   </view>
 
-  <view style="height:54px;"></view>
+  <view wx:if="{{pubDetail&&isMe}}" id="{{pubDetail._id}}" class="is-me" bindtap="goPubEditPage">
+    <text>这是我的宝贝，点击编辑</text>
+  </view>
+
+  <view style="height:100px;"></view>
 
   <view class="contact-info" wx:if="{{shopDetail.contact}}">
     <view class="ellipsis" data-phone="{{shopDetail.contact.phone}}" bindtap="callPhone">
