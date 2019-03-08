@@ -146,12 +146,18 @@ const distanceFormat = (distance) => {
 const timeDifferenceFormat = (t1Str, t2Str) => {
   t1Str = t1Str.replace(/-/g, '/')
   t2Str = t2Str.replace(/-/g, '/')
-  const hours = Math.abs((new Date(t1Str).getTime() - new Date(t2Str).getTime()) / (1000 * 3600))
-  if (hours < 24) {
-    return Number(hours).toFixed(0) + '小时'
+  let hours = Number(Math.abs((new Date(t1Str).getTime() - new Date(t2Str).getTime()) / (1000 * 3600))).toFixed(0)
+  if (Number(hours) < 24) {
+    if(Number(hours)===0){
+      hours = 1
+    }
+    return hours + '小时'
   } else {
-    const days = (Number(hours) / 24).toFixed(0)
-    if(days < 365){
+    let days = (Number(hours) / 24).toFixed(0) || 1
+    if (Number(days) < 365){
+      if (Number(days) === 0) {
+        days = 1
+      }
       return days + '天'
     }else{
       return (Number(days)/365).toFixed(0) + '年'

@@ -10,6 +10,7 @@ Page({
   data: {
     Version,
     dbUserInfo: null,
+    showLogin: false,
     icon: {
       right: '../../images/common/right.png',
       phone: '../../images/common/phone.png',
@@ -93,6 +94,9 @@ Page({
     const dbUserInfo = app.globalData.dbUserInfo || wx.getStorageSync('dbUserInfo')
     const _id = dbUserInfo && dbUserInfo._id
     if (!_id) {
+      this.setData({
+        showLogin: true
+      })
       wx.navigateTo({
         url: '../me/login/index',
       })

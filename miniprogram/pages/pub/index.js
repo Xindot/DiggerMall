@@ -120,6 +120,12 @@ Page({
   },
   // 获取宝贝/店铺总数
   getShopPubCount(){
+
+    this.setData({
+      shopPubCount: 0,
+      shopPubList: null,
+    })
+
     const type = Number(this.data.filter.type || 0)
     const keyWord = this.data.filter.keyWord || ''
     const kwRegExp = db.RegExp({

@@ -112,7 +112,7 @@
   </view>
 
 
-  <view wx:else class="login-btn" bindtap="goLoginPage">
+  <view wx:if="{{showLogin}}" class="login-btn" bindtap="goLoginPage">
     <button type="primary">微信登录</button>
   </view>
 

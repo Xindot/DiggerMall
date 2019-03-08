@@ -19,7 +19,7 @@ Page({
     pubForm:{
       title:'',
       desc:'',
-      price: 0,
+      price: null,
       remark:'',
       imgs: [],
       status:1,
