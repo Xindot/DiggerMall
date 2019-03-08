@@ -2,7 +2,7 @@
 
   <view class="search-area {{visible.filter?'fixed':''}}">
     <view class="left">
-      <input placeholder="搜索{{filter.type==1?'店铺名称描述/城市':'宝贝标题描述'}}" bindfocus="filterKeyWordFocus" bindinput="filterKeyWordChange"/>
+      <input placeholder="搜索{{filter.type==1?'店铺名称描述/地址':'宝贝标题描述'}}" bindfocus="filterKeyWordFocus" bindinput="filterKeyWordChange"/>
     </view>
     <view class="right" bindtap="switchFilterVisible">
       <image src="{{icon.filter}}{{visible.filter?'-1':''}}.png" style="width: 24px; height: 24px;font-size: 0;margin:3px 0;"></image>

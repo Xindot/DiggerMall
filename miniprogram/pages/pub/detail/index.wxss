@@ -1,23 +1,11 @@
 
-
-.shop-info {
-  padding: 10px;
-  background-color: #fff;
-  position: relative;
-}
-.shop-text {
-  display: inline-block;
-  vertical-align: middle;
-  padding: 0 10px;
-}
-
 .pub-info {
   padding: 10px;
   background-color: #fff;
-  border-top: dashed 1px #efefef;
 }
 .img-list {
   font-size: 0;
+    border-top: dashed 1px #efefef;
 }
 .img-list image {
   width: 100%;

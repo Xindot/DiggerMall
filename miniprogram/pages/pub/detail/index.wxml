@@ -1,25 +1,11 @@
 <view>
 
-  <view class="shop-info" wx:if="{{shopDetail.shop}}" id="{{shopDetail._id}}" bindtap="goShopDetailPage">
-    <view>
-      <image wx:if="{{shopDetail.shop.logo}}" style="width: 40px; height: 40px;font-size: 0;border-radius: 2.5px;vertical-align:middle;" src="{{shopDetail.shop.logo}}"></image>
-      <view class="shop-text">
-        <view style="color:#000;" class="ellipsis">
-          <text>{{shopDetail.shop.name}}</text>
-        </view>
-        <view style="font-size:12px;" class="ellipsis">
-          <text>{{shopDetail.shop.name}}</text>
-        </view>
-      </view>
-    </view>
-  </view>
-
   <view class="pub-info" wx:if="{{pubDetail}}">
     <view wx:if="{{pubDetail.title}}">
-      <view style="color:#000;">
+      <view style="color:#000;font-size:18px">
         <text>{{pubDetail.title}}</text>
       </view>
-      <view style="font-size:12px;">
+      <view style="font-size:14px;">
         <text>{{pubDetail.desc}}</text>
       </view>
       <view style="color:#1f87dd;font-weight:600;">
