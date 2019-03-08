@@ -9,7 +9,7 @@
 
 .shop-name,
 .shop-desc,
-.shop-remark {
+.shop-point {
   padding: 10px;
   text-align: left;
   background-color: #fff;

@@ -27,9 +27,19 @@
   </view>
 
   <view class="gap-1"></view>
-  <view class="shop-remark">
-    <text wx:if="{{shopInfo.remark}}" style="font-size:12px;">备注</text>
-    <textarea placeholder="备注" value="{{shopInfo.remark}}" bindinput="shopRemarkChange" auto-height style="min-height:50px;" maxlength="200"/>
+  <view class="shop-point" bindtap="wxCheckLocation">
+    <text wx:if="{{shopInfo.point}}" style="font-size:12px;">
+      <text>店铺位置</text>
+      <text style="color:red;"> * </text>    
+    </text>
+    <text wx:if="{{!shopInfo.point}}">选择位置</text>
+    <view class="ellipsis" wx:if="{{shopInfo.point.name}}" style="color:#000;">
+      <text wx:if="{{shopInfo.point.ssx}}">{{shopInfo.point.ssx}}·</text>
+      <text>{{shopInfo.point.name}}</text>
+    </view>
+    <view class="ellipsis" wx:if="{{shopInfo.point.address}}" style="font-size:12px;">
+      <text>{{shopInfo.point.address}}</text>
+    </view>
   </view>
 
   <view class="gap-1"></view>

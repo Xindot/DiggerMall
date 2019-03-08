@@ -1,18 +1,54 @@
 <view>
 
-  <view class="search-area">
-    <input placeholder="搜索宝贝标题/描述"></input>
+  <view class="search-area {{visible.filter?'fixed':''}}">
+    <view class="left">
+      <input placeholder="搜索{{filter.type==1?'店铺名称描述/城市':'宝贝标题描述'}}" bindfocus="filterKeyWordFocus" bindinput="filterKeyWordChange"/>
+    </view>
+    <view class="right" bindtap="switchFilterVisible">
+      <image src="{{icon.filter}}{{visible.filter?'-1':''}}.png" style="width: 24px; height: 24px;font-size: 0;margin:3px 0;"></image>
+    </view>
   </view>
 
-  <view class="t-pub-length">
-    <text>搜索到{{shopPubCount}}个宝贝</text>
+  <view class="filter-more" wx:if="{{visible.filter}}">
+    <view>
+      <text>筛选类型：</text>
+      <radio-group class="radio-group" bindchange="filterTypeChange">
+        <label class="radio" wx:for="{{sortTypes}}" wx:key="{{index}}">
+          <radio value="{{index}}" checked="{{filter.type==index}}" style=""/>
+          <text>{{item}}</text>
+        </label>
+      </radio-group>
+    </view>
+    <view>
+      <text>排序方式：</text>
+
+      <radio-group class="radio-group" bindchange="filterSortChange">
+        <label class="radio" wx:for="{{sortOpts[filter.type]}}" wx:key="{{index}}">
+          <radio value="{{index}}" checked="{{filter.sort==index}}" />
+          <text>{{item.name}}</text>
+        </label>
+      </radio-group>
+
+    </view>
+
+    <view bindtap="getListByFilter" style="margin:20px 0 10px 0;">
+      <button type="primary">确定</button>
+    </view>
+
   </view>
 
-  <view class="t-list" wx:if="{{shopPubList}}">
+  <view class="t-pub-length {{visible.filter?'margin-top-1':''}}">
+    <text>搜索到{{shopPubCount}}{{filter.type==1?'家店铺':'个宝贝'}}</text>
+  </view>
 
+  <view class="t-list" wx:if="{{shopPubList&&filter.type==0}}">
     <import src="../../template/pubList/index.wxml"/>
     <template is="pubList" data="{{pubList:shopPubList}}"/>
+  </view>
 
+  <view class="t-list" wx:if="{{shopPubList&&filter.type==1}}">
+    <import src="../../template/shopList/index.wxml"/>
+    <template is="shopList" data="{{shopList:shopPubList}}"/>
   </view>
 
 

@@ -27,7 +27,7 @@
       </view>
     </view>
 
-    <view class="shop-area">
+    <view class="shop-area" bindtap="goEditShopPage">
       <view style="width:48px;display:inline-block;vertical-align:top;">
         <image wx:if="{{shopUserInfo.shop.logo}}" style="width: 48px; height: 48px;border-radius: 2.5px;font-size: 0;vertical-align:top;" src="{{shopUserInfo.shop.logo}}"></image>
       </view>
@@ -46,7 +46,7 @@
         </view>
       </view>
 
-      <view wx:if="{{isMe}}" class="new-pub" bindtap="goPubAddPage">
+      <view wx:if="{{isMe}}" class="new-pub" catchtap="goPubAddPage">
         <text>新增宝贝</text>
       </view>
 

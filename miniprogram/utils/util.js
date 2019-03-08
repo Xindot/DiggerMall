@@ -148,9 +148,14 @@ const timeDifferenceFormat = (t1Str, t2Str) => {
   t2Str = t2Str.replace(/-/g, '/')
   const hours = Math.abs((new Date(t1Str).getTime() - new Date(t2Str).getTime()) / (1000 * 3600))
   if (hours < 24) {
-    return Number(hours).toFixed(0) + 'h'
+    return Number(hours).toFixed(0) + '小时'
   } else {
-    return (Number(hours) / 24).toFixed(0) + '天'
+    const days = (Number(hours) / 24).toFixed(0)
+    if(days < 365){
+      return days + '天'
+    }else{
+      return (Number(days)/365).toFixed(0) + '年'
+    }
   }
 }
 

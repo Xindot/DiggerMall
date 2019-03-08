@@ -1,0 +1,45 @@
+
+.t-shop-list {
+  padding: 10px 0;
+}
+
+.t-shop-one {
+  background-color: #fff;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+.t-shop-one > view {
+  display: inline-block;
+  box-sizing: border-box;
+  vertical-align: top;
+}
+
+.t-shop-one .left {
+  width: 20%;
+}
+.t-shop-one .center {
+  width: 64%;
+  padding: 0 10px;
+}
+.t-shop-one .right {
+  width: 16%;
+  text-align: center;
+  background-color: #f6f6f6;
+  border-radius: 50px;
+  padding: 2px 0;
+  color: #333;
+  font-size:14px;
+}
+.t-shop-one .left > view {
+  width: 100%;
+  padding-bottom: 100%;
+  position: relative;
+}
+.t-shop-one .left > view > image {
+  position: absolute;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 2.5px;
+}

@@ -1,0 +1,27 @@
+
+<template name="shopList">
+  <view class="t-shop-list" wx:if="{{shopList}}">
+    <view wx:for="{{shopList}}" wx:key="{{index}}" class="t-shop-one" id="{{item._id}}" bindtap="goShopDetailPage">
+      <view class="left">
+        <view style="font-size: 0;">
+          <image src="{{item.shop.logo}}"></image>
+        </view>
+      </view>
+      <view class="center">
+        <view class="ellipsis">
+          <text style="color:#000;">{{item.shop.name}}</text>
+        </view>
+        <view class="ellipsis">
+          <text style="font-size:12px">{{item.shop.desc}}</text>
+        </view>
+        <view style="font-size:14px;color:#1f87dd;">
+          <text wx:if="{{item.shop.point.ssx}}">{{item.shop.point.ssx}}</text>
+          <text wx:if="{{item.shop.created_at}}" style="margin-left:5px;" class="label-2">开店{{item.shop.created_at}}</text>
+        </view>
+      </view>
+      <view class="right">
+        <text>进店</text>
+      </view>
+    </view>
+  </view>
+</template>

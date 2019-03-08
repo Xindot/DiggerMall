@@ -19,7 +19,7 @@ Page({
     pubForm:{
       title:'',
       desc:'',
-      price:'',
+      price: 0,
       remark:'',
       imgs: [],
       status:1,
@@ -62,7 +62,7 @@ Page({
         const pubForm = {
           title: res.data.title || '',
           desc: res.data.desc || '',
-          price: res.data.price || '',
+          price: Number(res.data.price) || 0,
           remark: res.data.remark || '',
           imgs: res.data.imgs || '',
           status: res.data.status ? 1 : 0,
@@ -91,7 +91,7 @@ Page({
   // 价格改变
   priceChange(e) {
     // console.log(e)
-    const val = e.detail.value || ''
+    const val = Number(e.detail.value || 0)
     this.setData({
       'pubForm.price': val
     })
@@ -196,7 +196,7 @@ Page({
       })
       return
     }
-    if (pubForm.imgs.length === 0) {
+    if (!pubForm.desc) {
       wx.showModal({
         title: '',
         content: '请填写描述',
@@ -204,7 +204,9 @@ Page({
       })
       return
     }
-    if (pubForm.imgs.length === 0) {
+
+    pubForm.price = Number(pubForm.price || 0)
+    if (!(pubForm.price>0)) {
       wx.showModal({
         title: '',
         content: '请填写价格',
