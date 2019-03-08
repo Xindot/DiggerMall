@@ -42,16 +42,6 @@
   </view>
 
   <view>
-    <view wx:if="{{pubForm.remark}}">
-      <text style="font-size:15px;">备注</text>
-      <text style="font-size:10px;">/最多200字</text>
-    </view>
-    <view>
-      <textarea placeholder="备注" value="{{pubForm.remark}}" bindinput="remarkChange" auto-height maxlength="200"/>  
-    </view>
-  </view>
-
-  <view>
     <view>
       <text style="font-size:15px;">发布状态</text>
     </view>

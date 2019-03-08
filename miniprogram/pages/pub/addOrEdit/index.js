@@ -20,7 +20,6 @@ Page({
       title:'',
       desc:'',
       price: null,
-      remark:'',
       imgs: [],
       status:1,
     }
@@ -57,7 +56,7 @@ Page({
   },
   getPubDetail(pid){
     db.collection('wa_pub').doc(pid).get().then(res => {
-      console.log(res)
+      // console.log(res)
       if (res.errMsg ==='document.get:ok'){
         const pubForm = {
           title: res.data.title || '',
@@ -96,14 +95,6 @@ Page({
       'pubForm.price': val
     })
   },
-  // 备注改变
-  remarkChange(e) {
-    // console.log(e)
-    const val = e.detail.value || ''
-    this.setData({
-      'pubForm.remark': val
-    })
-  },
   // 状态改变
   statusChange(e){
     // console.log(e)
@@ -120,8 +111,7 @@ Page({
     app.doUploadImage(imgNum, res => {
       console.log(res)
       if (res.errMsg === "cloud.uploadFile:ok") {
-        console.log(res.fileID)
-
+        // console.log(res.fileID)
         imgs.push(res.fileID)
         this.setData({
           'pubForm.imgs': imgs
@@ -131,7 +121,7 @@ Page({
   },
   // 预览图片
   wxPreviewImage(e) {
-    console.log(e)
+    // console.log(e)
     const img = e.currentTarget.dataset.img
     if (img) {
       const current = img
@@ -144,7 +134,7 @@ Page({
   },
   // 删除图片
   deleteImg(e) {
-    console.log(e)
+    // console.log(e)
     wx.showModal({
       title: '',
       content: '删除图片？',
@@ -224,7 +214,7 @@ Page({
           ...pubForm
         }
       }).then(res=>{
-        console.log(res)
+        // console.log(res)
         if (res.errMsg === 'document.update:ok') {
           wx.showModal({
             title: '',
@@ -251,7 +241,7 @@ Page({
           ...pubForm
         }
       }).then(res => {
-        console.log(res)
+        // console.log(res)
         if (res.errMsg === 'collection.add:ok') {
           wx.showModal({
             title: '',

@@ -9,6 +9,7 @@ const Version = app.globalData.Version
 Page({
 
   data: {
+    pid: null,
     isMe: false,
     pubDetail: null,
     shopDetail: null,
@@ -49,28 +50,27 @@ Page({
     db.collection('wa_pub').doc(pid).get().then(res => {
       // console.log(res)
       if (res.errMsg === 'document.get:ok') {
-        const dbUserInfoNew = res.data
+        const pubDetail = res.data
         this.setData({
           pubDetail: res.data,
         })
-        const _openid = dbUserInfoNew._openid
+        const _openid = pubDetail._openid
         if (_openid){
-          this.checkUser(dbUserInfoNew)
+          this.checkUser(pubDetail)
           this.getPubShopInfo(_openid)
         }
       }
     })
   },
   // 判断用户
-  checkUser(dbUserInfoNew) {
+  checkUser(pubDetail) {
     const dbUserInfo = app.globalData.dbUserInfo || wx.getStorageInfoSync('dbUserInfo')
     if (dbUserInfo._openid) {
-      if (dbUserInfo._openid === dbUserInfoNew._openid) {
+      if (dbUserInfo._openid === pubDetail._openid) {
         this.setData({
           isMe: true
         })
         console.log('isMe')
-        app.setDBUserInfo(dbUserInfoNew)
       } else {
         this.setData({
           isMe: false
@@ -83,10 +83,10 @@ Page({
     db.collection('wa_user').where({
       _openid,
     }).get().then(res => {
+      // console.log(res)
       if (res.errMsg ==='collection.get:ok'){
-        console.log(res.data[0])
         this.setData({
-          shopDetail: res.data[0]
+          shopDetail: res.data[0] || null
         })
       }
     }).catch(err => {

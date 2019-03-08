@@ -162,13 +162,13 @@ Page({
           }
         ])
       }
-      console.log('ff=>',ff)
+      // console.log('ff=>',ff)
       db.collection('wa_user').where({
         shop_verify: {
           status: 1,
         },
       }).where(ff).count().then(res => {
-        console.log(res)
+        // console.log(res)
         if (res.errMsg === 'collection.count:ok') {
           this.setData({
             shopPubCount: res.total || 0
@@ -187,11 +187,11 @@ Page({
           }
         ])
       }
-      console.log('ff=>', ff)
+      // console.log('ff=>', ff)
       db.collection('wa_pub').where({
         status: 1,
       }).where(ff).count().then(res => {
-        console.log(res)
+        // console.log(res)
         if (res.errMsg === 'collection.count:ok') {
           this.setData({
             shopPubCount: res.total || 0
@@ -216,7 +216,7 @@ Page({
     const type = Number(this.data.filter.type || 0)
 
     const sortKey = sortOpts[type][sort].key
-    console.log('sortKey=>', sortKey)
+    // console.log('sortKey=>', sortKey)
     if(type===1){ // 店铺
       let oBK = 'shop.created_at'
       let oBV = 'asc'
@@ -233,12 +233,12 @@ Page({
           status: 1
         }
       }).where(ff).orderBy(oBK,oBV).get().then(res => {
-        console.log('shopPubList=>', res)
+        // console.log('shopPubList=>', res)
         if (res.errMsg === 'collection.get:ok') {
           const list = res.data || []
           const time1 = util.formatTime(new Date(), '-:')
           list.forEach(el=>{
-            el.shop.created_at = util.timeDifferenceFormat(el.shop.created_at,time1)
+            el.shop_verify.created_at = util.timeDifferenceFormat(el.shop_verify.created_at,time1)
           })
           this.setData({
             shopPubList: res.data || []
@@ -267,7 +267,7 @@ Page({
       db.collection('wa_pub').where({
         status: 1
       }).where(ff).orderBy(oBK, oBV).get().then(res => {
-        console.log('shopPubList=>', res)
+        // console.log('shopPubList=>', res)
         if (res.errMsg === 'collection.get:ok') {
           this.setData({
             shopPubList: res.data || []

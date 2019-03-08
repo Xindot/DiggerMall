@@ -180,7 +180,7 @@ Page({
         success: (res) => {
           wx.getClipboardData({
             success: (res) => {
-              console.log(res.data)
+              // console.log(res.data)
             }
           })
         }

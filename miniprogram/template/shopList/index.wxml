@@ -16,7 +16,7 @@
         </view>
         <view style="font-size:14px;color:#1f87dd;">
           <text wx:if="{{item.shop.point.ssx}}">{{item.shop.point.ssx}}</text>
-          <text wx:if="{{item.shop.created_at}}" style="margin-left:5px;" class="label-2">开店{{item.shop.created_at}}</text>
+          <text wx:if="{{item.shop.created_at}}" style="margin-left:5px;" class="label-2">开店{{item.shop_verify.created_at}}</text>
         </view>
       </view>
       <view class="right">

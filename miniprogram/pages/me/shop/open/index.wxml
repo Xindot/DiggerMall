@@ -10,7 +10,7 @@
 
   <view class="gap-1"></view>
   <view class="shop-name">
-    <text wx:if="{{shopInfo.name}}" style="font-size:12px;">
+    <text wx:if="{{shopInfo.name}}" style="font-size:14px;">
       <text>店铺名称</text>
       <text style="color:red;"> * </text>
     </text>
@@ -19,7 +19,7 @@
 
   <view class="gap-1"></view>
   <view class="shop-desc">
-    <text wx:if="{{shopInfo.desc}}" style="font-size:12px;">
+    <text wx:if="{{shopInfo.desc}}" style="font-size:14px;">
       <text>店铺描述</text>
       <text style="color:red;"> * </text>
     </text>
@@ -28,7 +28,7 @@
 
   <view class="gap-1"></view>
   <view class="shop-point" bindtap="wxCheckLocation">
-    <text wx:if="{{shopInfo.point}}" style="font-size:12px;">
+    <text wx:if="{{shopInfo.point}}" style="font-size:14px;">
       <text>店铺位置</text>
       <text style="color:red;"> * </text>    
     </text>

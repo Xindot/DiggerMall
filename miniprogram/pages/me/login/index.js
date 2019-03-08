@@ -35,7 +35,7 @@ Page({
   onPullDownRefresh() { },
   // Event handler.
   bindGetUserInfo(e) {
-    console.log(e)
+    // console.log(e)
     if (e.detail.errMsg == 'getUserInfo:ok') {
       const wxUserInfo = e.detail.userInfo
       // console.log('getUserInfo,1=>', wxUserInfo)
@@ -100,7 +100,11 @@ Page({
                 }
               }
             }).then(res => {
-              console.log(res)
+              // console.log(res)
+              if (res.errMsg == 'document.update:ok') {
+                console.log('更新用户提示：更新成功')
+                app.checkDBUser(OPENID)
+              }
             }).catch(err => {
               console.error(err)
             })

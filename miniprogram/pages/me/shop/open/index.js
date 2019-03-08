@@ -53,7 +53,7 @@ Page({
   // 上传图片
   doUploadImage(){
     app.doUploadImage(1, res=>{
-      console.log(res)
+      // console.log(res)
       if(res.errMsg==="cloud.uploadFile:ok"){
         // console.log(res.fileID)
         this.setData({
@@ -78,7 +78,7 @@ Page({
   wxCheckLocation(){
     wx.getSetting({
       success:(res)=> {
-        console.log(res)
+        // console.log(res)
         if (!res.authSetting['scope.userLocation']) {
           wx.authorize({
             scope: 'scope.userLocation',
@@ -86,7 +86,7 @@ Page({
               this.wxChooseLocation()
             },
             fail: (err) => {
-              // console.log(err)
+              console.error(err)
               wx.showToast({ title: JSON.stringify(err), icon: 'none' })
             }
           })
@@ -95,17 +95,17 @@ Page({
         }
       },
       fail: (err) => {
-        console.log(err)
+        console.error(err)
       }
     })
   },
   // 选择位置
   wxChooseLocation() {
-    console.log('wxChooseLocation()')
+    // console.log('wxChooseLocation()')
     wx.chooseLocation({
       type: 'wgs84',
       success: (res) => {
-        console.log(res)
+        // console.log(res)
         if (res.errMsg === "chooseLocation:ok") {
           const point = {
             name: res.name,
@@ -114,7 +114,7 @@ Page({
             longitude: res.longitude,
             latitude: res.latitude,
           }
-          console.log(point)
+          // console.log(point)
           this.setData({
             'shopInfo.point': point
           })
@@ -130,7 +130,7 @@ Page({
               if (res.confirm) {
                 wx.openSetting({
                   success: (res) => {
-                    console.log(res.authSetting)
+                    // console.log(res.authSetting)
                   }
                 })
               }
@@ -190,13 +190,12 @@ Page({
     db.collection('wa_user').doc(dbUserInfo._id).update({
       data: {
         shop: {
-          created_at: util.formatTime(new Date(), '-:'),
           updated_at: util.formatTime(new Date(), '-:'),
           ...shopInfo
         }
       }
     }).then(res => {
-      console.log(res)
+      // console.log(res)
       if (res.errMsg ==='document.update:ok'){
         wx.showModal({
           title: '',

@@ -59,12 +59,12 @@ Page({
   },
   // 去店铺认证页面
   goVerifyPage(e){
-    console.log(e)
+    // console.log(e)
     const shopv = e.currentTarget.dataset.shopv || null
     if(shopv&&shopv.status==1){
       const uid = this.data.dbUserInfo._id
       if(uid){
-        console.log(uid)
+        // console.log(uid)
         wx.navigateTo({
           url: './shop/detail/index?uid='+uid,
         })
@@ -109,15 +109,15 @@ Page({
       wx.hideLoading()
     }, Timeout.wx.hideLoading)
     db.collection('wa_user').doc(_id).get().then(res => {
-      console.log(res)
+      // console.log(res)
       if (res.errMsg === 'document.get:ok') {
         const dbUserInfo = res.data || null
         if (dbUserInfo) {
           this.setData({
             dbUserInfo,
           })
+          app.setDBUserInfo(dbUserInfo)
         }
-        app.setDBUserInfo(dbUserInfo)
       }
       wx.stopPullDownRefresh()
       wx.hideLoading()
@@ -152,7 +152,7 @@ Page({
         success: (res) => {
           wx.getClipboardData({
             success: (res) => {
-              console.log(res.data)
+              // console.log(res.data)
             }
           })
         }
