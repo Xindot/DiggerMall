@@ -4,7 +4,7 @@
     <view wx:for="{{shopList}}" wx:key="{{index}}" class="t-shop-one" id="{{item._id}}" bindtap="goShopDetailPage">
       <view class="left">
         <view style="font-size: 0;">
-          <image src="{{item.shop.logo}}"></image>
+          <image src="{{item.shop.logo}}" mode="aspectFill"></image>
         </view>
       </view>
       <view class="center">

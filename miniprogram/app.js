@@ -87,7 +87,7 @@ App({
   },
   // 设置用户信息
   setDBUserInfo(dbUserInfo) {
-    console.log('dbUserInfo=>', dbUserInfo)
+    // console.log('dbUserInfo=>', dbUserInfo)
     if (dbUserInfo && dbUserInfo._openid && dbUserInfo.wx && dbUserInfo.wx.nickName) {
       this.globalData.dbUserInfo = dbUserInfo
       try {

@@ -2,13 +2,13 @@
 <view>
 
   <view style="height:120px;overflow:hidden;">
-    <image src="{{shop.dbg[0]}}" style="width:100%;font-size: 0;" mode="center"></image>
+    <image src="{{shop.dbg[shop.dbgRand]}}" style="width:100%;font-size: 0;" mode="aspectFill"></image>
   </view>
 
   <view class="shop-main">
 
     <view>
-      <image wx:if="{{shopUserInfo.wx.avatarUrl}}" style="width: 60px; height: 60px;font-size: 0;border-radius: 50px;vertical-align:top;border:solid 4px #fff;" src="{{shopUserInfo.wx.avatarUrl}}"></image>
+      <image wx:if="{{shopUserInfo.wx.avatarUrl}}" style="width: 60px; height: 60px;font-size: 0;border-radius: 50px;vertical-align:top;border:solid 4px #fff;" mode="aspectFill" src="{{shopUserInfo.wx.avatarUrl}}"></image>
     </view>
 
     <view class="user-info">
@@ -17,11 +17,11 @@
       </view>
       <view wx:if="{{shopUserInfo.contact}}" class="contact-info">
         <view wx:if="{{shopUserInfo.contact.phone}}" style="display:inline-block;margin-left:15px;" data-phone="{{shopUserInfo.contact.phone}}" bindtap="callPhone">
-          <image style="width: 20px; height: 20px;font-size: 0;margin-right:2px;" src="{{icon.phone}}"></image>
+          <image style="width: 20px; height: 20px;font-size: 0;margin-right:2px;" mode="aspectFill" src="{{icon.phone}}"></image>
           <text class="ellipsis" style="width:100px;display:inline-block;">{{shopUserInfo.contact.phone}}</text>
         </view>
         <view wx:if="{{shopUserInfo.contact.otherContact}}" style="display:inline-block;margin-left:15px;" data-wechat="{{shopUserInfo.contact.otherContact}}" bindtap="wxSetClipboardData">
-          <image style="width: 20px; height: 20px;font-size: 0;margin-right:2px;" src="{{icon.wechat}}"></image>
+          <image style="width: 20px; height: 20px;font-size: 0;margin-right:2px;" mode="aspectFill" src="{{icon.wechat}}"></image>
           <text class="ellipsis" style="width:100px;display:inline-block;">{{shopUserInfo.contact.otherContact}}</text>
         </view>
       </view>
@@ -29,7 +29,7 @@
 
     <view class="shop-area" bindtap="goEditShopPage">
       <view style="width:48px;display:inline-block;vertical-align:top;">
-        <image wx:if="{{shopUserInfo.shop.logo}}" style="width: 48px; height: 48px;border-radius: 2.5px;font-size: 0;vertical-align:top;" src="{{shopUserInfo.shop.logo}}"></image>
+        <image wx:if="{{shopUserInfo.shop.logo}}" style="width: 48px; height: 48px;border-radius: 2.5px;font-size: 0;vertical-align:top;" mode="aspectFill" src="{{shopUserInfo.shop.logo}}"></image>
       </view>
 
       <view style="display:inline-block;padding:0 10px;width:150px;" class="ellipsis">

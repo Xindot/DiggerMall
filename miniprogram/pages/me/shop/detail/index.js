@@ -14,7 +14,8 @@ Page({
     shopPubCount: [0,0],
     shopPubList: [],
     shop: {
-      dbg: ['cloud://test-5ada43.7465-test-5ada43/static/shop/d-bg/0001.jpeg']
+      dbg:['cloud://test-5ada43.7465-test-5ada43/static/shop/d-bg/0001.jpeg', 'cloud://test-5ada43.7465-test-5ada43/static/shop/d-bg/0002.jpeg', 'cloud://test-5ada43.7465-test-5ada43/static/shop/d-bg/0003.jpeg', 'cloud://test-5ada43.7465-test-5ada43/static/shop/d-bg/0004.jpeg'],
+      dbgRand: 0
     },
     icon: {
       right: '../../../../images/common/right.png',
@@ -23,6 +24,12 @@ Page({
     }
   },
   onLoad(options) {
+    const dbg = this.data.shop.dbg || []
+    const dbgRand = Math.floor(Math.random() * dbg.length)
+    this.setData({
+      'shop.dbgRand': dbgRand
+    })
+    
     const uid = options.uid
     if(uid){
       this.setData({
