@@ -56,3 +56,15 @@
   line-height:14px;
   opacity: .5;
 }
+
+.contact-no {
+  position: fixed;
+  z-index: 11;
+  width: 100%;
+  bottom: 0;
+  height: 44px;
+  line-height: 44px;
+  background-color: #fff;
+  box-shadow: 0 0 10px 0 #ddd;
+  text-align: center;
+}

@@ -12,8 +12,9 @@ Page({
     isMe: false,
     shopUserInfo: null,
     shopPubCount: [0,0],
-    shopPubList: [],
+    shopPubList: null,
     shop: {
+      limit: 100,
       dbg:['cloud://test-5ada43.7465-test-5ada43/static/shop/d-bg/0001.jpeg', 'cloud://test-5ada43.7465-test-5ada43/static/shop/d-bg/0002.jpeg', 'cloud://test-5ada43.7465-test-5ada43/static/shop/d-bg/0003.jpeg', 'cloud://test-5ada43.7465-test-5ada43/static/shop/d-bg/0004.jpeg'],
       dbgRand: 0
     },
@@ -29,7 +30,7 @@ Page({
     this.setData({
       'shop.dbgRand': dbgRand
     })
-    
+
     const uid = options.uid
     if(uid){
       this.setData({
@@ -139,9 +140,10 @@ Page({
   },
   // 获取宝贝列表
   getShopPubList(_openid){
+    const limit = this.data.shop.limit || 100
     db.collection('wa_pub').where({
       _openid,
-    }).get().then(res => {
+    }).limit(limit).get().then(res => {
       // console.log('shopPubList=>',res)
       if (res.errMsg === 'collection.get:ok') {
         this.setData({
@@ -154,6 +156,16 @@ Page({
   },
   // 去新增/编辑宝贝页面 
   goPubAddPage(){
+    const shopPubList = this.data.shopPubList
+    const limit = this.data.shop.limit
+    if (shopPubList && shopPubList.length > limit){
+      wx.showModal({
+        title: '',
+        content: '宝贝数量已达上限',
+        showCancel: false,
+      })
+      return
+    }
     wx.navigateTo({
       url: '../../../pub/addOrEdit/index',
     })

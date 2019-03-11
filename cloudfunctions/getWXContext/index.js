@@ -1,4 +1,4 @@
-const env = ['test-5ada43', 'release-5ada43'][0]
+const env = ['test-5ada43', 'release-5ada43'][1]
 console.log('env=>', env)
 
 const cloud = require('wx-server-sdk')

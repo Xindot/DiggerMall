@@ -20,7 +20,10 @@ Page({
     filter:{
       keyWord: '',
       type: 0,
-      sort: 0, 
+      sort: 0,
+      ff: {},
+      page: 1,
+      size: 10,
     },
     sortTypes: ['宝贝','店铺'],
     sortOpts: [[{
@@ -124,6 +127,7 @@ Page({
     this.setData({
       shopPubCount: 0,
       shopPubList: null,
+      'filter.page': 1,
     })
 
     const type = Number(this.data.filter.type || 0)
@@ -163,6 +167,9 @@ Page({
         ])
       }
       // console.log('ff=>',ff)
+      this.setData({
+        'filter.ff': ff
+      })
       db.collection('wa_user').where({
         shop_verify: {
           status: 1,
@@ -188,6 +195,9 @@ Page({
         ])
       }
       // console.log('ff=>', ff)
+      this.setData({
+        'filter.ff': ff
+      })
       db.collection('wa_pub').where({
         status: 1,
       }).where(ff).count().then(res => {
@@ -212,8 +222,11 @@ Page({
     }, Timeout.wx.hideLoading)
 
     const sortOpts = this.data.sortOpts
-    const sort = Number(this.data.filter.sort || 0)
-    const type = Number(this.data.filter.type || 0)
+    const filter = this.data.filter
+    const sort = Number(filter.sort || 0)
+    const type = Number(filter.type || 0)
+    const limit = Number(filter.size || 2)
+    const skip = (Number(filter.page || 1) - 1) * limit
 
     const sortKey = sortOpts[type][sort].key
     // console.log('sortKey=>', sortKey)
@@ -232,7 +245,7 @@ Page({
         shop_verify: {
           status: 1
         }
-      }).where(ff).orderBy(oBK,oBV).get().then(res => {
+      }).where(ff).orderBy(oBK, oBV).skip(skip).limit(limit).get().then(res => {
         // console.log('shopPubList=>', res)
         if (res.errMsg === 'collection.get:ok') {
           const list = res.data || []
@@ -240,8 +253,16 @@ Page({
           list.forEach(el=>{
             el.shop_verify.created_at = util.timeDifferenceFormat(el.shop_verify.created_at,time1)
           })
+          let shopPubList = this.data.shopPubList
+          if (shopPubList && shopPubList.length>0){
+            if (list && list.length > 0){
+              shopPubList = shopPubList.concat(list)
+            }
+          }else{
+            shopPubList = list
+          }
           this.setData({
-            shopPubList: res.data || []
+            shopPubList,
           })
         }
         wx.stopPullDownRefresh()
@@ -266,11 +287,20 @@ Page({
       }
       db.collection('wa_pub').where({
         status: 1
-      }).where(ff).orderBy(oBK, oBV).get().then(res => {
+      }).where(ff).orderBy(oBK, oBV).skip(skip).limit(limit).get().then(res => {
         // console.log('shopPubList=>', res)
         if (res.errMsg === 'collection.get:ok') {
+          const list = res.data || []
+          let shopPubList = this.data.shopPubList
+          if (shopPubList && shopPubList.length > 0) {
+            if (list && list.length > 0) {
+              shopPubList = shopPubList.concat(list)
+            }
+          } else {
+            shopPubList = list
+          }
           this.setData({
-            shopPubList: res.data || []
+            shopPubList,
           })
         }
         wx.stopPullDownRefresh()
@@ -299,4 +329,15 @@ Page({
       })
     }
   },
+  // 点击加载更多 
+  showMore(){
+    const filter = this.data.filter
+    const ff = filter.ff
+    const page = Number(filter.page || 1) + 1
+    this.setData({
+      'filter.page': page
+    })
+    console.log(this.data.filter)
+    this.getShopPubList(ff)
+  }
 })

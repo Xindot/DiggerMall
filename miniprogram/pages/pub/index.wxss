@@ -69,5 +69,12 @@
   margin-top: 38px;
 }
 
+.show-more {
+  padding: 10px;
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
 @import "../../template/pubList/index.wxss";
 @import "../../template/shopList/index.wxss";

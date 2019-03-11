@@ -5,8 +5,10 @@
 
 .t-shop-one {
   background-color: #fff;
-  margin-bottom: 10px;
   padding: 10px;
+}
+.t-shop-one + .t-shop-one {
+  margin-top: 10px;
 }
 .t-shop-one > view {
   display: inline-block;

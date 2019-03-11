@@ -25,7 +25,7 @@
 
   <view style="height:100px;"></view>
 
-  <view class="contact-info" wx:if="{{shopDetail.contact}}">
+  <view wx:if="{{shopDetail.contact}}" class="contact-info">
     <view class="ellipsis" data-phone="{{shopDetail.contact.phone}}" bindtap="callPhone">
       <image style="width: 16px; height: 16px;font-size: 0;margin-right:5px;" src="{{icon.phone}}"></image>
       <text>{{shopDetail.contact.phone}}</text>
@@ -35,6 +35,10 @@
       <text class="remark" style="font-size:10px;">点击复制</text>
       <text>{{shopDetail.contact.otherContact}}</text>
     </view>
+  </view>
+
+  <view wx:else class="contact-no">
+    <text>该店主未设置或未公开联系方式</text>
   </view>
 
 </view>

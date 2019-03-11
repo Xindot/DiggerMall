@@ -62,5 +62,9 @@
     <import src="../../../../template/pubList/index.wxml"/>
     <template is="pubList" data="{{pubList:shopPubList}}"/>
 
+    <view>
+      <text style="font-size:10px;">本版本店铺最多可以上传{{shop.limit}}个宝贝(含上下架)</text>
+    </view>
+
   </view>
 </view>
