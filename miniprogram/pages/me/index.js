@@ -15,7 +15,8 @@ Page({
       right: '../../images/common/right.png',
       phone: '../../images/common/phone.png',
       wechat: '../../images/common/wechat.png',
-    }
+    },
+    gender: ['', '男', '女'],
   },
   onLoad(options) {
     this.getUserInfo()

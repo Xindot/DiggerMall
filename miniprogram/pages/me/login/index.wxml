@@ -2,7 +2,7 @@
 	<view wx:if="{{visible}}" class="login">
     <view class="slogan">
       <view style="font-size:24px;">
-        <text>寻机挖宝</text>
+        <text>DiggerMall 挖猫</text>
       </view>
       <view style="font-size:12px;color:#666;">
         <text>为您提供更好的信息服务</text>

@@ -37,7 +37,7 @@
       <text style="font-size:15px;">价格</text>
     </view>
     <view>
-      <textarea type="digit" placeholder="请填写价格" value="{{pubForm.price}}" bindinput="priceChange" auto-height maxlength="10"/>  
+      <input type="digit" placeholder="请填写价格" value="{{pubForm.price}}" bindinput="priceChange" auto-height maxlength="10"/>  
     </view>
   </view>
 

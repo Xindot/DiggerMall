@@ -27,6 +27,9 @@ Page({
         'shopInfo.desc': dbUserInfo.shop.desc || '',
         'shopInfo.point': dbUserInfo.shop.point || null,
       })
+      wx.setNavigationBarTitle({
+        title: '编辑店铺'
+      })
     }    
   },
   onReady() {

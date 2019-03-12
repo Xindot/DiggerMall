@@ -22,8 +22,8 @@
             <text style="color:#000;">{{dbUserInfo.wx.nickName}}</text>
           </view>
           <view style="font-size:12px;" class="ellipsis">
-            <text>{{dbUserInfo.wx.gender==1?'男':'女'}}</text>
-            <text>·{{dbUserInfo.wx.city}}</text>
+            <text>{{gender[dbUserInfo.wx.gender]}}</text>
+            <text wx:if="{{dbUserInfo.wx.city}}">·{{dbUserInfo.wx.city}}</text>
           </view>
         </view>
         <view class="right" bindtap="goLoginPage">

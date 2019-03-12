@@ -90,7 +90,7 @@ Page({
   // 价格改变
   priceChange(e) {
     // console.log(e)
-    const val = Number(e.detail.value || 0)
+    const val = Number(e.detail.value) || ''
     this.setData({
       'pubForm.price': val
     })
