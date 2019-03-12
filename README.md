@@ -1,6 +1,8 @@
 
 挖猫 - 二手挖掘机交易服务平台
 
+![挖猫_小程序码](http://img.6h5.cn/DiggerMall/logo/gh_02bb0ff2d0a5_258.jpg)
+
 ### 版本功能记录
 
 #### 1.0.1
