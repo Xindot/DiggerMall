@@ -339,5 +339,11 @@ Page({
     })
     console.log(this.data.filter)
     this.getShopPubList(ff)
+  },
+  // 去我的页面
+  goMePage(){
+    wx.switchTab({
+      url: '../me/index'
+    })
   }
 })

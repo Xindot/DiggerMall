@@ -1,9 +1,9 @@
 const util = require('utils/util')
 // 提交发布审核时要注意环境
-const env = ['test-5ada43', 'release-5ada43'][0]
+const env = ['test-5ada43', 'release-5ada43'][1]
 console.log('env=>', env)
 
-const Version = 'v1.0.1'
+const Version = 'v1.0.2'
 console.log('Version=>', Version)
 
 // console.log('wx.cloud=>',wx.cloud)

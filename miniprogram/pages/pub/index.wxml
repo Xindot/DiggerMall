@@ -51,9 +51,13 @@
     <template is="shopList" data="{{shopList:shopPubList}}"/>
   </view>
 
-  <view wx:if="{{shopPubList}}" class="show-more">
+  <view wx:if="{{shopPubList&&shopPubList.length>0}}" class="show-more">
     <text wx:if="{{shopPubList.length==shopPubCount}}">没有更多了</text>
     <text bindtap="showMore" wx:else style="color:#1f87dd;">点击加载更多</text>
+  </view>
+
+  <view wx:else style="padding:10% 20%;" bindtap="goMePage">
+    <button type="primary">发布我的宝贝</button>
   </view>
 
 </view>
