@@ -15,7 +15,8 @@ Page({
       filter: '../../images/common/filter'
     },
     visible:{
-      filter: false
+      filter: false,
+      pubBtn: false
     },
     filter:{
       keyWord: '',
@@ -261,8 +262,11 @@ Page({
           }else{
             shopPubList = list
           }
+          const pubBtn = shopPubList ? false : true
+          // console.log('pubBtn=>', pubBtn)
           this.setData({
             shopPubList,
+            'visible.pubBtn': pubBtn
           })
         }
         wx.stopPullDownRefresh()
@@ -299,8 +303,11 @@ Page({
           } else {
             shopPubList = list
           }
+          const pubBtn = shopPubList ? false : true
+          // console.log('pubBtn=>', pubBtn)
           this.setData({
             shopPubList,
+            'visible.pubBtn': pubBtn
           })
         }
         wx.stopPullDownRefresh()
